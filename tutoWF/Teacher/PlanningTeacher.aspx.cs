@@ -6,9 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace tutoWF.Teacher
-{
+{    
     public partial class PlanningTeacher : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(Request.QueryString["id"]);
@@ -23,6 +24,7 @@ namespace tutoWF.Teacher
                 if (id == loggedStudent.Teacher_id)
                 {
                     lblConnected.Text = "Vous êtes connecté";
+                    hdnStudentId.Value = loggedStudent.Id.ToString();
                 }
                 else lblConnected.Text = "Vous n'êtes pas connecté";
             }

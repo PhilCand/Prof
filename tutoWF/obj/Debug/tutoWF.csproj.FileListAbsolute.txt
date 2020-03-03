@@ -79,3 +79,263 @@ C:\Users\77011-73-09\source\repos\tutoWF\tutoWF\bin\AngleSharp.dll
 C:\Users\77011-73-09\source\repos\tutoWF\tutoWF\bin\HtmlSanitizer.dll
 C:\Users\77011-73-09\source\repos\tutoWF\tutoWF\bin\AngleSharp.xml
 C:\Users\77011-73-09\source\repos\tutoWF\tutoWF\bin\HtmlSanitizer.xml
+C:\PHIL\Prof\tutoWF\bin\tutoWF.dll.config
+C:\PHIL\Prof\tutoWF\bin\tutoWF.dll
+C:\PHIL\Prof\tutoWF\bin\tutoWF.pdb
+C:\PHIL\Prof\tutoWF\bin\roslyn\csc.exe
+C:\PHIL\Prof\tutoWF\bin\roslyn\csc.exe.config
+C:\PHIL\Prof\tutoWF\bin\roslyn\csc.rsp
+C:\PHIL\Prof\tutoWF\bin\roslyn\csi.exe
+C:\PHIL\Prof\tutoWF\bin\roslyn\csi.exe.config
+C:\PHIL\Prof\tutoWF\bin\roslyn\csi.rsp
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.Managed.Core.targets
+C:\PHIL\Prof\tutoWF\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.AppContext.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Collections.Immutable.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Console.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.IO.Compression.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.IO.FileSystem.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.IO.Pipes.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Reflection.Metadata.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Security.AccessControl.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Security.Claims.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Security.Principal.Windows.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.ValueTuple.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Xml.XmlDocument.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Xml.XPath.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\PHIL\Prof\tutoWF\bin\roslyn\vbc.exe
+C:\PHIL\Prof\tutoWF\bin\roslyn\vbc.exe.config
+C:\PHIL\Prof\tutoWF\bin\roslyn\vbc.rsp
+C:\PHIL\Prof\tutoWF\bin\roslyn\VBCSCompiler.exe
+C:\PHIL\Prof\tutoWF\bin\roslyn\VBCSCompiler.exe.config
+C:\PHIL\Prof\tutoWF\bin\AngleSharp.dll
+C:\PHIL\Prof\tutoWF\bin\Antlr3.Runtime.dll
+C:\PHIL\Prof\tutoWF\bin\AspNet.ScriptManager.bootstrap.dll
+C:\PHIL\Prof\tutoWF\bin\AspNet.ScriptManager.jQuery.dll
+C:\PHIL\Prof\tutoWF\bin\HtmlSanitizer.dll
+C:\PHIL\Prof\tutoWF\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\PHIL\Prof\tutoWF\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\PHIL\Prof\tutoWF\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\PHIL\Prof\tutoWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\PHIL\Prof\tutoWF\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\PHIL\Prof\tutoWF\bin\Microsoft.ScriptManager.WebForms.dll
+C:\PHIL\Prof\tutoWF\bin\Microsoft.Web.Infrastructure.dll
+C:\PHIL\Prof\tutoWF\bin\Newtonsoft.Json.dll
+C:\PHIL\Prof\tutoWF\bin\System.Diagnostics.DiagnosticSource.dll
+C:\PHIL\Prof\tutoWF\bin\System.Web.Optimization.dll
+C:\PHIL\Prof\tutoWF\bin\WebGrease.dll
+C:\PHIL\Prof\tutoWF\bin\AngleSharp.xml
+C:\PHIL\Prof\tutoWF\bin\HtmlSanitizer.xml
+C:\PHIL\Prof\tutoWF\bin\System.Web.Optimization.xml
+C:\PHIL\Prof\tutoWF\bin\Newtonsoft.Json.xml
+C:\PHIL\Prof\tutoWF\bin\Antlr3.Runtime.pdb
+C:\PHIL\Prof\tutoWF\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\PHIL\Prof\tutoWF\bin\System.Diagnostics.DiagnosticSource.xml
+C:\PHIL\Prof\tutoWF\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\PHIL\Prof\tutoWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\PHIL\Prof\tutoWF\bin\fr\System.Web.Optimization.resources.dll
+C:\PHIL\Prof\tutoWF\bin\fr\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\PHIL\Prof\tutoWF\obj\Debug\tutoWF.csprojAssemblyReference.cache
+C:\PHIL\Prof\tutoWF\obj\Debug\tutoWF.csproj.CoreCompileInputs.cache
+C:\PHIL\Prof\tutoWF\obj\Debug\tutoWF.csproj.CopyComplete
+C:\PHIL\Prof\tutoWF\obj\Debug\tutoWF.dll
+C:\PHIL\Prof\tutoWF\obj\Debug\tutoWF.pdb
+C:\PHIL\test calendar\Prof\tutoWF\obj\Debug\tutoWF.csprojAssemblyReference.cache
+C:\PHIL\test calendar\Prof\tutoWF\obj\Debug\tutoWF.dll
+C:\PHIL\test calendar\Prof\tutoWF\obj\Debug\tutoWF.pdb
+C:\PHIL\test calendar\Prof\tutoWF\bin\tutoWF.dll.config
+C:\PHIL\test calendar\Prof\tutoWF\bin\tutoWF.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\tutoWF.pdb
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\csc.exe
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\csc.exe.config
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\csc.rsp
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\csi.exe
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\csi.exe.config
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\csi.rsp
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.Managed.Core.targets
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.AppContext.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Collections.Immutable.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Console.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.IO.Compression.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.IO.FileSystem.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.IO.Pipes.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Reflection.Metadata.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Security.AccessControl.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Security.Claims.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Security.Principal.Windows.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.ValueTuple.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Xml.XmlDocument.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Xml.XPath.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\vbc.exe
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\vbc.exe.config
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\vbc.rsp
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\VBCSCompiler.exe
+C:\PHIL\test calendar\Prof\tutoWF\bin\roslyn\VBCSCompiler.exe.config
+C:\PHIL\test calendar\Prof\tutoWF\bin\AngleSharp.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Antlr3.Runtime.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\AspNet.ScriptManager.bootstrap.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\AspNet.ScriptManager.jQuery.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\HtmlSanitizer.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.ScriptManager.WebForms.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.Web.Infrastructure.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\Newtonsoft.Json.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Diagnostics.DiagnosticSource.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Web.Optimization.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\WebGrease.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\AngleSharp.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\HtmlSanitizer.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Web.Optimization.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\Newtonsoft.Json.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\Antlr3.Runtime.pdb
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Diagnostics.DiagnosticSource.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\fr\System.Web.Optimization.resources.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\fr\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\PHIL\test calendar\Prof\tutoWF\obj\Debug\tutoWF.csproj.CopyComplete
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Net.Http.Formatting.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Web.Http.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Web.Http.WebHost.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Net.Http.Formatting.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Web.Http.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\System.Web.Http.WebHost.xml
+C:\PHIL\test calendar\Prof\tutoWF\bin\fr\System.Net.Http.Formatting.resources.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\fr\System.Web.Http.resources.dll
+C:\PHIL\test calendar\Prof\tutoWF\bin\fr\System.Web.Http.WebHost.resources.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\tutoWF.dll.config
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\tutoWF.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\tutoWF.pdb
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\csc.exe
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\csc.exe.config
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\csc.rsp
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\csi.exe
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\csi.exe.config
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\csi.rsp
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.Managed.Core.targets
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.AppContext.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Collections.Immutable.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Console.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.IO.Compression.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.IO.FileSystem.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.IO.Pipes.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Reflection.Metadata.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Security.AccessControl.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Security.Claims.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Security.Principal.Windows.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.ValueTuple.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Xml.XmlDocument.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Xml.XPath.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\vbc.exe
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\vbc.exe.config
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\vbc.rsp
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\VBCSCompiler.exe
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\roslyn\VBCSCompiler.exe.config
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\AngleSharp.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Antlr3.Runtime.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\AspNet.ScriptManager.bootstrap.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\AspNet.ScriptManager.jQuery.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\HtmlSanitizer.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.ScriptManager.WebForms.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.Web.Infrastructure.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Newtonsoft.Json.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Diagnostics.DiagnosticSource.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Net.Http.Formatting.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Web.Http.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Web.Http.WebHost.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Web.Optimization.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\WebGrease.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\AngleSharp.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\HtmlSanitizer.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Net.Http.Formatting.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Web.Http.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Web.Http.WebHost.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Web.Optimization.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Newtonsoft.Json.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Antlr3.Runtime.pdb
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\System.Diagnostics.DiagnosticSource.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\fr\System.Net.Http.Formatting.resources.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\fr\System.Web.Http.resources.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\fr\System.Web.Http.WebHost.resources.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\fr\System.Web.Optimization.resources.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\bin\fr\Microsoft.AspNet.FriendlyUrls.resources.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\obj\Debug\tutoWF.csprojAssemblyReference.cache
+C:\PHIL\Projet fin stage\Prof\tutoWF\obj\Debug\tutoWF.csproj.CoreCompileInputs.cache
+C:\PHIL\Projet fin stage\Prof\tutoWF\obj\Debug\tutoWF.csproj.CopyComplete
+C:\PHIL\Projet fin stage\Prof\tutoWF\obj\Debug\tutoWF.dll
+C:\PHIL\Projet fin stage\Prof\tutoWF\obj\Debug\tutoWF.pdb

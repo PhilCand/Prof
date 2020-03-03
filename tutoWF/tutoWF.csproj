@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,7 +58,17 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -132,6 +144,103 @@
     <Content Include="Disconnect.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Fullcalendar\core\LICENSE.txt" />
+    <Content Include="Fullcalendar\core\locales-all.js" />
+    <Content Include="Fullcalendar\core\locales-all.min.js" />
+    <Content Include="Fullcalendar\core\locales\af.js" />
+    <Content Include="Fullcalendar\core\locales\ar-dz.js" />
+    <Content Include="Fullcalendar\core\locales\ar-kw.js" />
+    <Content Include="Fullcalendar\core\locales\ar-ly.js" />
+    <Content Include="Fullcalendar\core\locales\ar-ma.js" />
+    <Content Include="Fullcalendar\core\locales\ar-sa.js" />
+    <Content Include="Fullcalendar\core\locales\ar-tn.js" />
+    <Content Include="Fullcalendar\core\locales\ar.js" />
+    <Content Include="Fullcalendar\core\locales\az.js" />
+    <Content Include="Fullcalendar\core\locales\bg.js" />
+    <Content Include="Fullcalendar\core\locales\bs.js" />
+    <Content Include="Fullcalendar\core\locales\ca.js" />
+    <Content Include="Fullcalendar\core\locales\cs.js" />
+    <Content Include="Fullcalendar\core\locales\da.js" />
+    <Content Include="Fullcalendar\core\locales\de.js" />
+    <Content Include="Fullcalendar\core\locales\el.js" />
+    <Content Include="Fullcalendar\core\locales\en-au.js" />
+    <Content Include="Fullcalendar\core\locales\en-gb.js" />
+    <Content Include="Fullcalendar\core\locales\en-nz.js" />
+    <Content Include="Fullcalendar\core\locales\es-us.js" />
+    <Content Include="Fullcalendar\core\locales\es.js" />
+    <Content Include="Fullcalendar\core\locales\et.js" />
+    <Content Include="Fullcalendar\core\locales\eu.js" />
+    <Content Include="Fullcalendar\core\locales\fa.js" />
+    <Content Include="Fullcalendar\core\locales\fi.js" />
+    <Content Include="Fullcalendar\core\locales\fr-ca.js" />
+    <Content Include="Fullcalendar\core\locales\fr-ch.js" />
+    <Content Include="Fullcalendar\core\locales\fr.js" />
+    <Content Include="Fullcalendar\core\locales\gl.js" />
+    <Content Include="Fullcalendar\core\locales\he.js" />
+    <Content Include="Fullcalendar\core\locales\hi.js" />
+    <Content Include="Fullcalendar\core\locales\hr.js" />
+    <Content Include="Fullcalendar\core\locales\hu.js" />
+    <Content Include="Fullcalendar\core\locales\id.js" />
+    <Content Include="Fullcalendar\core\locales\is.js" />
+    <Content Include="Fullcalendar\core\locales\it.js" />
+    <Content Include="Fullcalendar\core\locales\ja.js" />
+    <Content Include="Fullcalendar\core\locales\ka.js" />
+    <Content Include="Fullcalendar\core\locales\kk.js" />
+    <Content Include="Fullcalendar\core\locales\ko.js" />
+    <Content Include="Fullcalendar\core\locales\lb.js" />
+    <Content Include="Fullcalendar\core\locales\lt.js" />
+    <Content Include="Fullcalendar\core\locales\lv.js" />
+    <Content Include="Fullcalendar\core\locales\mk.js" />
+    <Content Include="Fullcalendar\core\locales\ms.js" />
+    <Content Include="Fullcalendar\core\locales\nb.js" />
+    <Content Include="Fullcalendar\core\locales\nl.js" />
+    <Content Include="Fullcalendar\core\locales\nn.js" />
+    <Content Include="Fullcalendar\core\locales\pl.js" />
+    <Content Include="Fullcalendar\core\locales\pt-br.js" />
+    <Content Include="Fullcalendar\core\locales\pt.js" />
+    <Content Include="Fullcalendar\core\locales\ro.js" />
+    <Content Include="Fullcalendar\core\locales\ru.js" />
+    <Content Include="Fullcalendar\core\locales\sk.js" />
+    <Content Include="Fullcalendar\core\locales\sl.js" />
+    <Content Include="Fullcalendar\core\locales\sq.js" />
+    <Content Include="Fullcalendar\core\locales\sr-cyrl.js" />
+    <Content Include="Fullcalendar\core\locales\sr.js" />
+    <Content Include="Fullcalendar\core\locales\sv.js" />
+    <Content Include="Fullcalendar\core\locales\th.js" />
+    <Content Include="Fullcalendar\core\locales\tr.js" />
+    <Content Include="Fullcalendar\core\locales\ug.js" />
+    <Content Include="Fullcalendar\core\locales\uk.js" />
+    <Content Include="Fullcalendar\core\locales\uz.js" />
+    <Content Include="Fullcalendar\core\locales\vi.js" />
+    <Content Include="Fullcalendar\core\locales\zh-cn.js" />
+    <Content Include="Fullcalendar\core\locales\zh-tw.js" />
+    <Content Include="Fullcalendar\core\main.css" />
+    <Content Include="Fullcalendar\core\main.esm.js" />
+    <Content Include="Fullcalendar\core\main.js" />
+    <Content Include="Fullcalendar\core\main.min.css" />
+    <Content Include="Fullcalendar\core\main.min.js" />
+    <Content Include="Fullcalendar\daygrid\LICENSE.txt" />
+    <Content Include="Fullcalendar\daygrid\main.css" />
+    <Content Include="Fullcalendar\daygrid\main.esm.js" />
+    <Content Include="Fullcalendar\daygrid\main.js" />
+    <Content Include="Fullcalendar\daygrid\main.min.css" />
+    <Content Include="Fullcalendar\daygrid\main.min.js" />
+    <Content Include="Fullcalendar\interaction\LICENSE.txt" />
+    <Content Include="Fullcalendar\interaction\main.esm.js" />
+    <Content Include="Fullcalendar\interaction\main.js" />
+    <Content Include="Fullcalendar\interaction\main.min.js" />
+    <Content Include="Fullcalendar\list\LICENSE.txt" />
+    <Content Include="Fullcalendar\list\main.css" />
+    <Content Include="Fullcalendar\list\main.esm.js" />
+    <Content Include="Fullcalendar\list\main.js" />
+    <Content Include="Fullcalendar\list\main.min.css" />
+    <Content Include="Fullcalendar\list\main.min.js" />
+    <Content Include="Fullcalendar\timegrid\LICENSE.txt" />
+    <Content Include="Fullcalendar\timegrid\main.css" />
+    <Content Include="Fullcalendar\timegrid\main.esm.js" />
+    <Content Include="Fullcalendar\timegrid\main.js" />
+    <Content Include="Fullcalendar\timegrid\main.min.css" />
+    <Content Include="Fullcalendar\timegrid\main.min.js" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -141,7 +250,23 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Fullcalendar\core\main.js.map" />
+    <Content Include="Fullcalendar\core\package.json" />
+    <Content Include="Fullcalendar\core\README.md" />
+    <Content Include="Fullcalendar\timegrid\main.js.map" />
+    <Content Include="Fullcalendar\timegrid\package.json" />
+    <Content Include="Fullcalendar\timegrid\README.md" />
+    <Content Include="Fullcalendar\daygrid\main.js.map" />
+    <Content Include="Fullcalendar\daygrid\package.json" />
+    <Content Include="Fullcalendar\daygrid\README.md" />
+    <Content Include="Fullcalendar\interaction\main.js.map" />
+    <Content Include="Fullcalendar\interaction\package.json" />
+    <Content Include="Fullcalendar\interaction\README.md" />
+    <Content Include="Fullcalendar\list\main.js.map" />
+    <Content Include="Fullcalendar\list\package.json" />
+    <Content Include="Fullcalendar\list\README.md" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\scripts.js" />
     <Content Include="Student\HomeStudent.aspx" />
     <Content Include="Student\ManageStudent.aspx" />
     <Content Include="Student\Newstudent.aspx" />
@@ -180,6 +305,8 @@
     <Content Include="Teacher\Newteacher.aspx" />
     <Content Include="Teacher\PlanningTeacher.aspx" />
     <Content Include="Teacher\TeacherLogin.aspx" />
+    <Content Include="Teacher\ManagePlanning.aspx" />
+    <Content Include="testcalendar.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -219,9 +346,11 @@
     <Compile Include="Disconnect.aspx.designer.cs">
       <DependentUpon>Disconnect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EventsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subject.cs" />
@@ -304,6 +433,20 @@
     <Compile Include="Teacher\TeacherLogin.aspx.designer.cs">
       <DependentUpon>TeacherLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\ManagePlanning.aspx.cs">
+      <DependentUpon>ManagePlanning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teacher\ManagePlanning.aspx.designer.cs">
+      <DependentUpon>ManagePlanning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testcalendar.aspx.cs">
+      <DependentUpon>testcalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testcalendar.aspx.designer.cs">
+      <DependentUpon>testcalendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,7 +455,13 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="Fullcalendar\core\main.d.ts" />
+    <TypeScriptCompile Include="Fullcalendar\daygrid\main.d.ts" />
+    <TypeScriptCompile Include="Fullcalendar\interaction\main.d.ts" />
+    <TypeScriptCompile Include="Fullcalendar\list\main.d.ts" />
+    <TypeScriptCompile Include="Fullcalendar\timegrid\main.d.ts" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -324,11 +473,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>

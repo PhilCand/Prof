@@ -16,5 +16,6 @@ namespace tutoWF.Models
         public bool Gender { get; set; }
         public string Adress { get; set; }
         public string Picture { get; set; }
+        public List<Event> Events { get; set; }
     }
 }

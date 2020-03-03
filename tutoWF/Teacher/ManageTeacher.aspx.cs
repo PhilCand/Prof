@@ -15,6 +15,12 @@ namespace tutoWF.Teacher
 
             lblManageTeacher.Text = $"Interface de gestion du prof {loggedTeacher.FirstName} {loggedTeacher.Name}";
 
+            hlPlanning.Attributes.Add("href", "/Teacher/ManagePlanning");
+
+            lblNumber.Text = $"{loggedTeacher.Id}";
+            lblNumberDesc.Text = $"Numéro à fournir à vos élèves pour acceder à votre planning";                   
+
+
         }
     }
 }

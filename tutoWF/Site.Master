@@ -7,8 +7,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mon ASP.NET Application</title>
 
+    <title><%: Page.Title %> - Mon ASP.NET Application</title>
+    <link href='/Fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='/Fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href='/Fullcalendar/timegrid/main.css' rel='stylesheet' />
+    <link href='/Fullcalendar/list/main.css' rel='stylesheet' />
+
+    <script src='/Fullcalendar/core/main.js'></script>
+    <script src='/Fullcalendar/daygrid/main.js'></script>
+    <script src='/Fullcalendar/timegrid/main.js'></script>
+    <script src='/fullcalendar/core/locales/fr.js'></script>
+    <script src='/fullcalendar/interaction/main.js'></script>
+    <script src='/fullcalendar/list/main.js'></script>
+    <script src='/Scripts/scripts.js'></script>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -18,8 +30,11 @@
 
 </head>
 <body>
+<%--        <script src="/Fullcalendar/core/main.js"></script>
+        <script src="/Fullcalendar/timegrid/main.js"></script>
+        <script src="/Scripts/scripts.js"></script>--%>
     <form runat="server">
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager runat="server">            
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -53,19 +68,22 @@
                     <ul class="nav navbar-nav text-right">
                         <li><a runat="server" href="~/">Accueil</a></li>
 
-                        <%if (Session["Teacher"] != null){ %>                        
+                        <%if (Session["Teacher"] != null)
+                            { %>
                         <li><a runat="server" href="~/Teacher/ManageTeacher">Gestion compte prof</a></li>
                         <%}%>
 
-                        <%if (Session["Student"] != null){ %>                        
+                        <%if (Session["Student"] != null)
+                            { %>
                         <li><a runat="server" href="~/Student/ManageStudent">Gestion compte élève</a></li>
                         <%}%>
 
-                        <%if (Session["Teacher"] != null || Session["Student"] != null){ %>
-                        <li><asp:Label Text="" ID="lblNameConnected" runat="server" /></li>
+                        <%if (Session["Teacher"] != null || Session["Student"] != null)
+                            { %>
+                        <li>
+                            <asp:Label Text="" ID="lblNameConnected" runat="server" /></li>
                         <li><a runat="server" href="~/Disconnect">Se déconnecter</a></li>
                         <%}%>
-
                     </ul>
                 </div>
             </div>
@@ -75,10 +93,9 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mon ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Philippe Canduro AFPA Projet fin de formation</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

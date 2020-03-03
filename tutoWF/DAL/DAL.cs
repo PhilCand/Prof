@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 using tutoWF.Models;
 
+
 namespace tutoWF.DAL
 {
     public class DAL
@@ -264,6 +265,144 @@ namespace tutoWF.DAL
                 }
             }
 
+        }
+
+        public static Event[] GetEventsbyTeacherId(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                List<Event> Events = new List<Event>();
+                connection.Open();
+                String query = $"SELECT * FROM Event WHERE Teacher_id={id}";
+                SqlCommand myCommand = new SqlCommand(query, connection);
+
+                SqlDataReader rdr = myCommand.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Event newEvent = new Event();
+
+                    newEvent.id = (int)rdr["Id"];
+                    newEvent.title = rdr["Title"].ToString();
+                    newEvent.start = (DateTime)rdr["Start_date"];
+                    newEvent.end = (DateTime)rdr["End_date"];
+                    newEvent.url = rdr["Url"].ToString();
+                    newEvent.teacher_id = (int)rdr["Teacher_id"];
+                    newEvent.student_id = GetValue<int>(rdr["Student_id"]);
+                    newEvent.backgroundColor = rdr["BackgroundColor"].ToString();
+                    newEvent.description = rdr["Description"].ToString();
+
+                    Events.Add(newEvent);
+                }
+
+                Event[] EventsArr = Events.ToArray();
+
+
+                return EventsArr;
+            }
+
+        }
+
+        public static int CreateEvent(Event newEvent)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "INSERT INTO Event (Start_date, End_date, Teacher_id, BackgroundColor, State) VALUES (@start,@end,@teacher_id,'green', 'Libre'); SELECT MAX(id) FROM Event";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@start", newEvent.start);
+                    command.Parameters.AddWithValue("@end", newEvent.end);
+                    command.Parameters.AddWithValue("@teacher_id", newEvent.teacher_id);
+
+                    connection.Open();
+                    return (int)command.ExecuteScalar();
+
+                }
+            }
+        }
+
+        public static void UpdateEvent(Event updatedEvent)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "UPDATE Event SET Start_date = @start, End_date = @end";
+                if (updatedEvent.title != null) query += ", Title = @title";
+                if (updatedEvent.student_id != 0) query += ", Student_id = @student_id, BackgroundColor = 'grey', State = 'Réservé'";
+                query += " WHERE id=@id";                                                        
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@start", updatedEvent.start);
+                    command.Parameters.AddWithValue("@end", updatedEvent.end);
+                    command.Parameters.AddWithValue("@id", updatedEvent.id);
+                    if (updatedEvent.title != null)  command.Parameters.AddWithValue("@title", updatedEvent.title);
+                    if (updatedEvent.student_id != 0) command.Parameters.AddWithValue("@student_id", updatedEvent.student_id);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+                                                                                                   
+                }
+
+            }
+
+        }
+
+        public static void DeleteEvent(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "DELETE FROM Event WHERE id=@id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                }
+
+            }
+
+        }
+
+        public static Event GetEventbyId(int event_id, int teacher_id)
+        {
+            Event oneEvent = new Event();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+
+                connection.Open();
+                String query = $"SELECT * FROM Event WHERE Teacher_id={teacher_id} AND Id = {event_id}";
+                SqlCommand myCommand = new SqlCommand(query, connection);
+
+                SqlDataReader rdr = myCommand.ExecuteReader();
+
+                while (rdr.Read())
+                {
+
+                    oneEvent.id = (int)rdr["Id"];
+                    oneEvent.title = rdr["Title"].ToString();
+                    oneEvent.start = (DateTime)rdr["Start_date"];
+                    oneEvent.end = (DateTime)rdr["End_date"];
+                    oneEvent.url = rdr["Url"].ToString();
+                    oneEvent.teacher_id = (int)rdr["Teacher_id"];
+                    oneEvent.student_id = GetValue<int>(rdr["Student_id"]);
+                    oneEvent.backgroundColor = rdr["BackgroundColor"].ToString();
+                    oneEvent.description = rdr["Description"].ToString();
+                }
+
+            }
+            return oneEvent;
+        }
+
+        public static T GetValue<T>(object value)
+        {
+            if (value == null || value == DBNull.Value)
+                return default(T);
+            else
+                return (T)value;
         }
     }
 }
