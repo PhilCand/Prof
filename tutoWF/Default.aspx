@@ -4,19 +4,14 @@
     <div id="title">
         <h1 class="display-4" >Bienvenue sur réserve ton prof</h1>
     </div>
-        
-
-    
-
-
     <div class="jumbotron">
         <h1 class="display-4">Vous êtes un élève ?</h1>
         <p class="lead">Entrez le numero fourni par votre professeur</p>
         <hr class="my-4">
-        <div class="col-xs-2">
-            <asp:TextBox runat="server" ID="tbTeacherId" CssClass="form-control"></asp:TextBox>
-        </div>
-        <asp:Button runat="server" ID="btnGoToTeacher" CssClass="btn btn-success" Text="Valider" OnClick="btnGoToTeacher_Click" />
+
+            <asp:TextBox runat="server" ID="tbTeacherId" CssClass="form-control tbTeacherId mr-4"></asp:TextBox>
+
+        <asp:Button runat="server" ID="btnGoToTeacher" CssClass="btn btn-outline-primary btn-lg" Text="Valider" OnClick="btnGoToTeacher_Click" />
     </div>
 
     <div class="jumbotron">

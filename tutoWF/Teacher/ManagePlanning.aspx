@@ -101,7 +101,7 @@
                             },
                             eventClick: function (event, jsEvent, view) {
 
-                                 $('#modalTitle').val(event.event.title);
+                                $('#modalTitle').val(event.event.title);
                                 $('#lblStart').text(formatDate(event.event.start));
                                 $('#lblEnd').text(formatDate(event.event.end));
                                 $('#modalBody').html(event.event.description);
@@ -137,7 +137,6 @@
                             },
                         });
                         calendar.render();
-
                     }
                 }
             }
@@ -145,10 +144,7 @@
             xmlhttp.open('GET', 'http://localhost:51023/api/events/' + teacherId, true);
             xmlhttp.send(null);
 
-        });
-         
-
-        
+        }); 
 
     </script>
 
@@ -174,9 +170,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    
+                    <h4><input type="text" name="inputTitle" placeholder="Titre" id="modalTitle" value="" /></h4>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
-                    <h4>
-                        <input type="text" name="inputTitle" placeholder="Titre" id="modalTitle" value="" /></h4>
                 </div>
                 <div id="modalBody" class="modal-body">
                     <label>Date début : </label>

@@ -28,7 +28,7 @@ namespace tutoWF.Teacher
                 if (id == loggedTeacher.Id)
                 {
                     lblNumber.Text = $"{teachersPage.Id}";
-                    lblNumberDesc.Text = $"Numéro à fournir à vos élèves pour acceder à votre planning";
+                    lblNumberDesc.Text = $"Numéro à fournir à vos élèves : ";
                 }
             }
 

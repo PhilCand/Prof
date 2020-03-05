@@ -31,4 +31,15 @@ function deleteEvent(id) {
 
 }
 
+function confirmDelete() {
+    return confirm("Confirmer la suppression ?");
+}
+
+function showSuccessAlert() {
+    $("#alert_success_edit").fadeTo(2000, 500).slideUp(500, function () {
+        $("#alert_success_edit").slideUp(500);
+    });
+}
+
+
 

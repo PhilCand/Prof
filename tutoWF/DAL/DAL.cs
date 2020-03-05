@@ -13,6 +13,8 @@ namespace tutoWF.DAL
 {
     public class DAL
     {
+
+        #region STUDENT
         public static string _connectionString = ConfigurationManager.ConnectionStrings["connection"].ToString();
 
         public static List<string> GetEmailFromStudent(int teacherId)
@@ -35,37 +37,6 @@ namespace tutoWF.DAL
             }
 
             return emails;
-        }
-
-        internal static Models.Teacher GetTeacherbyID(int id)
-        {
-            Models.Teacher teacher = new Models.Teacher();
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-                String query = $"SELECT * FROM Teacher WHERE Id={id}";
-                SqlCommand myCommand = new SqlCommand(query, connection);
-
-                SqlDataReader rdr = myCommand.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    teacher.Name = rdr["Name"].ToString();
-                    teacher.Id = (int)rdr["Id"];
-                    teacher.Phone = rdr["Phone"].ToString();
-                    teacher.Picture = rdr["Picture"].ToString();
-                    teacher.Password = rdr["Password"].ToString();
-                    teacher.Adress = rdr["Adress"].ToString();
-                    teacher.Description = rdr["Description"].ToString();
-                    teacher.Email = rdr["Email"].ToString();
-                    teacher.Gender = (bool)rdr["Gender"];
-                    teacher.FirstName = rdr["FirstName"].ToString();
-
-                }
-            }
-
-            return teacher;
         }
 
         internal static Models.Student GetStudentbyID(int studentId)
@@ -99,29 +70,6 @@ namespace tutoWF.DAL
             return student;
         }
 
-        internal static int LoginTeacher(string email, string password)
-        {
-            String query = "";
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                query = $"SELECT Id FROM Teacher WHERE Email='{email}' AND Password='{password}'";
-
-                SqlCommand myCommand = new SqlCommand(query, connection);
-
-                object result = myCommand.ExecuteScalar();
-
-                if (result != null)
-                {
-                    int id = int.Parse(result.ToString());
-                    return id;
-                }
-                else return -1;
-            }
-        }
-
         internal static int LoginStudent(string email, string password, int id)
         {
             String query = "";
@@ -143,28 +91,6 @@ namespace tutoWF.DAL
                 }
                 else return -1;
             }
-        }
-
-        public static List<string> GetEmailFromTeacher()
-        {
-            List<string> emails = new List<string>();
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-                String query = $"SELECT Email FROM Teacher";
-                SqlCommand myCommand = new SqlCommand(query, connection);
-
-                SqlDataReader rdr = myCommand.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    string emaildb = rdr["Email"].ToString();
-                    emails.Add(emaildb);
-                }
-            }
-
-            return emails;
         }
 
         public static bool CreateStudent(Models.Student newStudent)
@@ -196,6 +122,153 @@ namespace tutoWF.DAL
             }
 
         }
+
+        public static void DeleteStudent(int studentId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "DELETE FROM Student WHERE Id = @studentId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentId", studentId);
+                    
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                }
+            }
+
+        }
+
+        public static bool UpdateStudent(Models.Student updatedStudent)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "UPDATE Student SET Name = @name, FirstName = @firstname, Email = @email, Phone = @phone, Gender = @gender, Adress = @adress WHERE Id = @id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", updatedStudent.Id);
+                    command.Parameters.AddWithValue("@name", updatedStudent.Name);
+                    command.Parameters.AddWithValue("@firstname", updatedStudent.FirstName);
+                    command.Parameters.AddWithValue("@email", updatedStudent.Email);
+                    //command.Parameters.AddWithValue("@password", updatedStudent.Password);
+                    command.Parameters.AddWithValue("@phone", updatedStudent.Phone);
+                    command.Parameters.AddWithValue("@gender", updatedStudent.Gender);
+                    command.Parameters.AddWithValue("@adress", updatedStudent.Adress);
+                    //command.Parameters.AddWithValue("@teacher_id", updatedStudent.Teacher_id);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0) return false;
+
+                    else return true;
+
+                }
+            }
+
+        }
+
+        public static bool IsStudentOfTeacher(int studentId, int teacherId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {                
+                String query = "SELECT * FROM Student WHERE Id=@studentId AND Teacher_id = @teacherId;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@studentId", studentId);
+                    command.Parameters.AddWithValue("@teacherId", teacherId);
+                    connection.Open();
+                    SqlDataReader rdr = command.ExecuteReader();
+                    
+                    if (rdr.HasRows) return true;
+                    else return false;
+                }               
+            }
+        }
+
+        #endregion
+
+        #region TEACHER
+        internal static Models.Teacher GetTeacherbyID(int id)
+        {
+            Models.Teacher teacher = new Models.Teacher();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                String query = $"SELECT * FROM Teacher WHERE Id={id}";
+                SqlCommand myCommand = new SqlCommand(query, connection);
+
+                SqlDataReader rdr = myCommand.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    teacher.Name = rdr["Name"].ToString();
+                    teacher.Id = (int)rdr["Id"];
+                    teacher.Phone = rdr["Phone"].ToString();
+                    teacher.Picture = rdr["Picture"].ToString();
+                    teacher.Password = rdr["Password"].ToString();
+                    teacher.Adress = rdr["Adress"].ToString();
+                    teacher.Description = rdr["Description"].ToString();
+                    teacher.Email = rdr["Email"].ToString();
+                    teacher.Gender = (bool)rdr["Gender"];
+                    teacher.FirstName = rdr["FirstName"].ToString();
+
+                }
+            }
+
+            return teacher;
+        }       
+
+        internal static int LoginTeacher(string email, string password)
+        {
+            String query = "";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                query = $"SELECT Id FROM Teacher WHERE Email='{email}' AND Password='{password}'";
+
+                SqlCommand myCommand = new SqlCommand(query, connection);
+
+                object result = myCommand.ExecuteScalar();
+
+                if (result != null)
+                {
+                    int id = int.Parse(result.ToString());
+                    return id;
+                }
+                else return -1;
+            }
+        }        
+
+        public static List<string> GetEmailFromTeacher()
+        {
+            List<string> emails = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                String query = $"SELECT Email FROM Teacher";
+                SqlCommand myCommand = new SqlCommand(query, connection);
+
+                SqlDataReader rdr = myCommand.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    string emaildb = rdr["Email"].ToString();
+                    emails.Add(emaildb);
+                }
+            }
+
+            return emails;
+        }        
 
         public static bool CreateTeacher(Models.Teacher newTeacher, ListBox lbSubject)
         {
@@ -241,6 +314,33 @@ namespace tutoWF.DAL
             }
         }
 
+        #endregion
+
+        internal static bool UpdatePassword(string personType, int personId, string password)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = $"UPDATE {personType} SET Password = @password WHERE Id = @id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", personId);
+                    command.Parameters.AddWithValue("@personType", personType);
+                    command.Parameters.AddWithValue("@password", password);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0) return false;
+
+                    else return true;
+
+                }
+            }
+        }
+
+        #region EVENT
         public static void LoadSubjects(ListBox lb)
         {
 
@@ -404,5 +504,7 @@ namespace tutoWF.DAL
             else
                 return (T)value;
         }
+
+        #endregion
     }
 }

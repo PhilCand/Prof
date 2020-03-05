@@ -7,11 +7,13 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace tutoWF {
-    
-    
-    public partial class SiteMaster {
-        
+namespace tutoWF
+{
+
+
+    public partial class SiteMaster
+    {
+
         /// <summary>
         /// Contrôle lblNameConnected.
         /// </summary>
@@ -20,7 +22,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNameConnected;
-        
+
         /// <summary>
         /// Contrôle MainContent.
         /// </summary>

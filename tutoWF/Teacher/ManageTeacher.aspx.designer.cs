@@ -7,11 +7,13 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace tutoWF.Teacher {
-    
-    
-    public partial class ManageTeacher {
-        
+namespace tutoWF.Teacher
+{
+
+
+    public partial class ManageTeacher
+    {
+
         /// <summary>
         /// Contrôle lblManageTeacher.
         /// </summary>
@@ -20,16 +22,7 @@ namespace tutoWF.Teacher {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblManageTeacher;
-        
-        /// <summary>
-        /// Contrôle lblNumber.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumber;
-        
+
         /// <summary>
         /// Contrôle lblNumberDesc.
         /// </summary>
@@ -38,7 +31,16 @@ namespace tutoWF.Teacher {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNumberDesc;
-        
+
+        /// <summary>
+        /// Contrôle lblNumber.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumber;
+
         /// <summary>
         /// Contrôle hlPlanning.
         /// </summary>
@@ -47,5 +49,14 @@ namespace tutoWF.Teacher {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hlPlanning;
+
+        /// <summary>
+        /// Contrôle gvStudent.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvStudent;
     }
 }

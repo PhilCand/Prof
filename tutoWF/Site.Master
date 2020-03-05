@@ -30,11 +30,9 @@
 
 </head>
 <body>
-<%--        <script src="/Fullcalendar/core/main.js"></script>
-        <script src="/Fullcalendar/timegrid/main.js"></script>
-        <script src="/Scripts/scripts.js"></script>--%>
+
     <form runat="server">
-        <asp:ScriptManager runat="server">            
+        <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -54,40 +52,37 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Réserve ton prof</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav text-right">
-                        <li><a runat="server" href="~/">Accueil</a></li>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Réserve ton prof</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-item nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
+                    </li>
+                    <%if (Session["Teacher"] != null)
+                        { %>
+                    <a class="nav-item nav-link" href="/Teacher/ManageTeacher">Gestion compte prof</a>
+                    <%}%>
+                    <%if (Session["Student"] != null)
+                        { %>
+                    <a class="nav-item nav-link" href="/Student/ManageStudent">Gestion compte élève</a>
+                    <%}%>
 
-                        <%if (Session["Teacher"] != null)
-                            { %>
-                        <li><a runat="server" href="~/Teacher/ManageTeacher">Gestion compte prof</a></li>
-                        <%}%>
+                    <%if (Session["Teacher"] != null || Session["Student"] != null)
+                        { %>
+                    <a class="nav-item nav-link" href="/Disconnect">Se déconnecter</a>
+                    <%}%>
+                </ul>
+                <%if (Session["Teacher"] != null || Session["Student"] != null)
+                        { %>
+                <span class="navbar-text mt-0"><asp:Label Text="" ID="lblNameConnected" CssClass="navbar-text mt-0" runat="server" /></span>
+                 <%}%>
 
-                        <%if (Session["Student"] != null)
-                            { %>
-                        <li><a runat="server" href="~/Student/ManageStudent">Gestion compte élève</a></li>
-                        <%}%>
-
-                        <%if (Session["Teacher"] != null || Session["Student"] != null)
-                            { %>
-                        <li>
-                            <asp:Label Text="" ID="lblNameConnected" runat="server" /></li>
-                        <li><a runat="server" href="~/Disconnect">Se déconnecter</a></li>
-                        <%}%>
-                    </ul>
-                </div>
             </div>
-        </div>
+        </nav>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -96,6 +91,7 @@
                 <p>&copy; <%: DateTime.Now.Year %> - Philippe Canduro AFPA Projet fin de formation</p>
             </footer>
         </div>
+        
     </form>
 </body>
 </html>
