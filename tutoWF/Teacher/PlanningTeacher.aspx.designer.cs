@@ -7,11 +7,13 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace tutoWF.Teacher {
-    
-    
-    public partial class PlanningTeacher {
-        
+namespace tutoWF.Teacher
+{
+
+
+    public partial class PlanningTeacher
+    {
+
         /// <summary>
         /// Contrôle lblPlanning.
         /// </summary>
@@ -20,7 +22,7 @@ namespace tutoWF.Teacher {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPlanning;
-        
+
         /// <summary>
         /// Contrôle lblConnected.
         /// </summary>
@@ -29,7 +31,7 @@ namespace tutoWF.Teacher {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblConnected;
-        
+
         /// <summary>
         /// Contrôle hdnStudentId.
         /// </summary>
@@ -38,5 +40,23 @@ namespace tutoWF.Teacher {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnStudentId;
+
+        /// <summary>
+        /// Contrôle hfeventIdModal.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfeventIdModal;
+
+        /// <summary>
+        /// Contrôle btn_bookEvent.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_bookEvent;
     }
 }

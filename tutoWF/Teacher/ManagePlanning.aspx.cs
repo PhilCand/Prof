@@ -16,7 +16,28 @@ namespace tutoWF
         {
             Models.Teacher loggedTeacher = (Models.Teacher)Session["Teacher"];
             hdnTeacherId.Value = loggedTeacher.Id.ToString();
-            
+        }
+
+        protected void btn_update_Click(object sender, EventArgs e)
+        {
+            int eventId = Int32.Parse(hfeventIdModal.Value);
+            string title = tbModalTitle.Text;
+            string desc = tbModalDesc.Text;
+
+            DAL.DAL.UpdateEventTitleDesc(eventId, title, desc);
+
+
+        }
+
+        protected void btn_delete_Click(object sender, EventArgs e)
+        {
+            int eventId = Int32.Parse(hfeventIdModal.Value);
+            DAL.DAL.DeleteEvent(eventId);
+        }
+
+        protected void btn_freeEvent_Click(object sender, EventArgs e)
+        {
+            DAL.DAL.FreeEvent(hfeventIdModal.Value);
         }
     }
 }

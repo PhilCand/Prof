@@ -93,9 +93,12 @@
                             },
                             eventClick: function (event, jsEvent, view) {
 
+                                console.log(event);
+
                                 $('#modalTitle').val(event.event.title);
                                 $('#lblStart').text(formatDate(event.event.start));
                                 $('#lblEnd').text(formatDate(event.event.end));
+                                $('#lblState').text(event.event.extendedProps.state);
                                 $('#modalBody').html(event.event.description);
                                 $('#eventUrl').attr('href', event.url);
                                 $('#calendarModal').modal();
@@ -148,9 +151,9 @@
                 date.getHours().toString().padStart(2, '0')}:${
                 date.getMinutes().toString().padStart(2, '0')}:${
                 date.getSeconds().toString().padStart(2, '0')}`;
-            
+
         }
-               
+
         function deleteEvent(id) {
 
             let deletedEvent = {
@@ -198,8 +201,9 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    
-                    <h4><input type="text" name="inputTitle" placeholder="Titre" id="modalTitle" value="" /></h4>
+
+                    <h4>
+                        <input type="text" name="inputTitle" placeholder="Titre" id="modalTitle" value="" /></h4>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                 </div>
                 <div id="modalBody" class="modal-body">
@@ -208,6 +212,9 @@
                     <br />
                     <label>Date fin : </label>
                     <label id="lblEnd"></label>
+                    <br />
+                    <label>Etat : </label>
+                    <label id="lblState"></label>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" id="btn_update">Valider</button>

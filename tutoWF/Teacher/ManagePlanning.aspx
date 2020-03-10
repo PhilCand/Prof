@@ -9,7 +9,6 @@
 
         var teacherId = document.getElementById('hdnTeacherId').value;
 
-
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var Draggable = FullCalendarInteraction.Draggable;
@@ -32,12 +31,12 @@
                     if (xmlhttp.status == 200) {
                         let evenements = JSON.parse(xmlhttp.responseText);
 
-
                         var calendar = new FullCalendar.Calendar(calendarEl, {
                             plugins: ['timeGrid', 'dayGrid', 'list', 'interaction'],
                             locale: 'fr',
                             events: evenements,
                             nowIndicator: true,
+                            defaultDate: sessionStorage.getItem("date") == null ? new Date().toISOString() : sessionStorage.getItem("date"),
                             editable: true,
                             eventDrop: (infos) => {
                                 let movedEvent = {
@@ -56,6 +55,7 @@
                                     }
                                 });
                             },
+                            allDaySlot: false,
                             droppable: true, // this allows things to be dropped onto the calendar
                             drop: function (info) {
                                 var start = new Date(info.dateStr);
@@ -74,6 +74,8 @@
                                     dataType: 'json',
                                     data: newEvent,
                                     success: function (result) {
+                                        var date = calendar.getDate();
+                                        sessionStorage.setItem("date", date.toISOString());
                                         location.reload();
                                     },
                                     error: function (xhr, textStatus, errorThrown) {
@@ -100,43 +102,26 @@
                                 });
                             },
                             eventClick: function (event, jsEvent, view) {
-
-                                $('#modalTitle').val(event.event.title);
+                                var date = calendar.getDate();
+                                sessionStorage.setItem("date", date.toISOString());
+                                $('#MainContent_tbModalTitle').val(event.event.title);
                                 $('#lblStart').text(formatDate(event.event.start));
                                 $('#lblEnd').text(formatDate(event.event.end));
+                                $('#lblState').text(event.event.extendedProps.state);
+                                $('#MainContent_tbModalDesc').text(event.event.extendedProps.description);
                                 $('#modalBody').html(event.event.description);
                                 $('#eventUrl').attr('href', event.url);
                                 $('#calendarModal').modal();
-                                $('#btn_delete').attr('onClick', 'deleteEvent(' + event.event.id + ')')
-                                $('#btn_delete').click(function () {
-                                    event.event.remove();
-                                });
-                                $('#btn_update').click(function () {
-                                    let updatedEvent = {
-                                        start: event.event.start.toISOString(),
-                                        end: event.event.end.toISOString(),
-                                        id: event.event.id,
-                                        title: $('#modalTitle').val()
-                                    }
-                                    console.log(event.event.id);
-
-                                    $.ajax({
-                                        url: 'http://localhost:51023/api/events/' + event.event.id,
-                                        type: 'PUT',
-                                        dataType: 'json',
-                                        data: updatedEvent,
-                                        success: function (result) {
-                                            location.reload();
-                                        },
-                                        error: function (xhr, textStatus, errorThrown) {
-                                            console.log('Error in Operation');
-                                        }
-                                    });
-                                    $('#calendarModal').modal('toggle');
-                                });
+                                $('#MainContent_hfeventIdModal').val(event.event.id);
+                                if (event.event.extendedProps.student_id == 0) $('#MainContent_btn_freeEvent').attr('disabled', true);
+                                if (event.event.backgroundColor == "grey" && event.event.start >= Date.now()) {
+                                    $('#MainContent_btn_freeEvent').removeAttr('disabled');                                   
+                                }
                             },
                         });
+
                         calendar.render();
+
                     }
                 }
             }
@@ -144,7 +129,11 @@
             xmlhttp.open('GET', 'http://localhost:51023/api/events/' + teacherId, true);
             xmlhttp.send(null);
 
-        }); 
+        });
+        $('.maj').click(function () {
+            alert("ok");
+            sessionStorage.setItem("date", date.toISOString());
+        });
 
     </script>
 
@@ -153,10 +142,6 @@
             <strong>Ajouter un cours</strong>
         </p>
         <div class='fc-event'>Cours</div>
-        <%--        <div class='fc-event'>My Event 2</div>
-        <div class='fc-event'>My Event 3</div>
-        <div class='fc-event'>My Event 4</div>
-        <div class='fc-event'>My Event 5</div>--%>
         <p>
             <%--            <input type='checkbox' id='drop-remove' />--%>
             <label for='drop-remove'>Glisser / déposer</label>
@@ -170,8 +155,10 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    
-                    <h4><input type="text" name="inputTitle" placeholder="Titre" id="modalTitle" value="" /></h4>
+                    <h4>
+                        <label>Titre : </label>
+                        <asp:TextBox runat="server" ID="tbModalTitle" placeholder="Titre" />
+                    </h4>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                 </div>
                 <div id="modalBody" class="modal-body">
@@ -180,10 +167,21 @@
                     <br />
                     <label>Date fin : </label>
                     <label id="lblEnd"></label>
+                    <br />
+                    <label>Description : </label>
+                    <br />
+                    <asp:TextBox runat="server" TextMode="multiline" Rows="5" placeholder="Description" ID="tbModalDesc" Style="width: 100%"></asp:TextBox>
+                    <br />
+                    <label>Etat : </label>
+                    <label id="lblState"></label>
+                    <asp:HiddenField runat="server" ID="hfeventIdModal" Value="test" />
+
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="btn_update">Valider</button>
-                    <button type="button" class="btn btn-danger" id="btn_delete">Supprimer</button>
+                    <asp:Button runat="server" CssClass="btn btn-success" ID="btn_update" Text="Valider" OnClick="btn_update_Click" />
+                    <asp:Button runat="server" CssClass="btn btn-warning" ID="btn_freeEvent" Text="Libérer" OnClick="btn_freeEvent_Click" />
+                    <asp:Button runat="server" CssClass="btn btn-danger" ID="btn_delete" Text="Supprimer" OnClick="btn_delete_Click" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                 </div>
             </div>

@@ -93,6 +93,8 @@ namespace tutoWF.DAL
             }
         }
 
+
+
         public static bool CreateStudent(Models.Student newStudent)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -132,7 +134,7 @@ namespace tutoWF.DAL
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@studentId", studentId);
-                    
+
                     connection.Open();
                     int result = command.ExecuteNonQuery();
 
@@ -175,7 +177,7 @@ namespace tutoWF.DAL
         public static bool IsStudentOfTeacher(int studentId, int teacherId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
-            {                
+            {
                 String query = "SELECT * FROM Student WHERE Id=@studentId AND Teacher_id = @teacherId;";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -184,10 +186,10 @@ namespace tutoWF.DAL
                     command.Parameters.AddWithValue("@teacherId", teacherId);
                     connection.Open();
                     SqlDataReader rdr = command.ExecuteReader();
-                    
+
                     if (rdr.HasRows) return true;
                     else return false;
-                }               
+                }
             }
         }
 
@@ -223,7 +225,7 @@ namespace tutoWF.DAL
             }
 
             return teacher;
-        }       
+        }
 
         internal static int LoginTeacher(string email, string password)
         {
@@ -246,7 +248,7 @@ namespace tutoWF.DAL
                 }
                 else return -1;
             }
-        }        
+        }
 
         public static List<string> GetEmailFromTeacher()
         {
@@ -268,7 +270,7 @@ namespace tutoWF.DAL
             }
 
             return emails;
-        }        
+        }
 
         public static bool CreateTeacher(Models.Teacher newTeacher, ListBox lbSubject)
         {
@@ -391,6 +393,7 @@ namespace tutoWF.DAL
                     newEvent.student_id = GetValue<int>(rdr["Student_id"]);
                     newEvent.backgroundColor = rdr["BackgroundColor"].ToString();
                     newEvent.description = rdr["Description"].ToString();
+                    newEvent.state = rdr["State"].ToString();
 
                     Events.Add(newEvent);
                 }
@@ -428,24 +431,61 @@ namespace tutoWF.DAL
             {
                 String query = "UPDATE Event SET Start_date = @start, End_date = @end";
                 if (updatedEvent.title != null) query += ", Title = @title";
+                if (updatedEvent.description != null) query += ", Description = @description";
                 if (updatedEvent.student_id != 0) query += ", Student_id = @student_id, BackgroundColor = 'grey', State = 'Réservé'";
-                query += " WHERE id=@id";                                                        
+                query += " WHERE id=@id";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@start", updatedEvent.start);
                     command.Parameters.AddWithValue("@end", updatedEvent.end);
                     command.Parameters.AddWithValue("@id", updatedEvent.id);
-                    if (updatedEvent.title != null)  command.Parameters.AddWithValue("@title", updatedEvent.title);
+                    if (updatedEvent.title != null) command.Parameters.AddWithValue("@title", updatedEvent.title);
+                    if (updatedEvent.description != null) command.Parameters.AddWithValue("@description", updatedEvent.description);
                     if (updatedEvent.student_id != 0) command.Parameters.AddWithValue("@student_id", updatedEvent.student_id);
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
-                                                                                                   
+
                 }
 
             }
 
+        }
+
+        public static void UpdateEventTitleDesc(int eventId, string title, string desc)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "UPDATE Event SET Title = @title, Description = @description WHERE id=@id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", eventId);
+                    command.Parameters.AddWithValue("@title", title);
+                    command.Parameters.AddWithValue("@description", desc);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void BookEvent(int eventId, int studentId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "UPDATE Event SET Student_id = @student_id, State = 'Réservé', BackgroundColor = 'grey'  WHERE id=@id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", eventId);
+                    command.Parameters.AddWithValue("@student_id", studentId);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+                }
+            }
         }
 
         public static void DeleteEvent(int id)
@@ -495,6 +535,22 @@ namespace tutoWF.DAL
 
             }
             return oneEvent;
+        }
+
+        internal static void FreeEvent(object eventId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "UPDATE Event SET Student_id = NULL, State = 'Libre', BackgroundColor = 'green' WHERE id=@id";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", eventId);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+                }
+            }
         }
 
         public static T GetValue<T>(object value)

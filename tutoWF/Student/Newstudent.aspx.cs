@@ -11,10 +11,28 @@ using System.Web.UI.WebControls;
 namespace tutoWF
 {
     public partial class Newstudent : System.Web.UI.Page
-    {   
+    {
+
+        public int LoggedTeacherId { get; set; }
+        public int UrlTeacherId { get; set; }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblMessage.Text = "";
+            
+            if (!IsPostBack)
+            {
+                if (Session["Teacher"] != null)
+                {
+                    Models.Teacher loggedTeacher = (Models.Teacher)Session["Teacher"];
+                    LoggedTeacherId = loggedTeacher.Id;
+                }
+                UrlTeacherId = Convert.ToInt32(Request.QueryString["id"]);
+                Models.Teacher teacher = DAL.DAL.GetTeacherbyID(UrlTeacherId);
+                lblCreateStudent.Text = $"Professeur : {teacher.FirstName} {teacher.Name}";
+                ViewState["Referrer"] = Request.UrlReferrer.ToString();
+            }
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -25,7 +43,8 @@ namespace tutoWF
                 var sanitizer = new HtmlSanitizer();
                 Models.Student newStudent = BuildStudent();
                 string confirm = sanitizer.Sanitize(txtPasswordConfirm.Text);
-                int teacherId = Convert.ToInt32(Request.QueryString["id"]);
+                
+
 
                 if (newStudent.Password != confirm)
                 {
@@ -33,7 +52,7 @@ namespace tutoWF
                     return;
                 }
 
-                List<string> emails = DAL.DAL.GetEmailFromStudent(teacherId);
+                List<string> emails = DAL.DAL.GetEmailFromStudent(UrlTeacherId);
 
                 foreach (string emaildb in emails)
                 {
@@ -46,7 +65,8 @@ namespace tutoWF
 
                 if (DAL.DAL.CreateStudent(newStudent))
                 {
-                    Response.Redirect($"/Success?id={teacherId}");
+                    if (Session["Teacher"] != null) Response.Redirect(ViewState["Referrer"].ToString());
+                    else Response.Redirect($"/Success?id={UrlTeacherId}");
                 }
 
                 else this.lblMessage.Text = "Une erreur est survenue, réessayez";

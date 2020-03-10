@@ -3,12 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="title">
-        <h1><asp:Label Text="" ID="lblTitle" runat="server" /></h1>
+        <h1>
+            <asp:Label Text="" ID="lblTitle" runat="server" /></h1>
+    </div>
+    
+
+    <div class="jumbotron">
+        <h1 class="display-4"><%= TeachersPage.FirstName %> <%=TeachersPage.Name %></h1>
+        <p class="lead"><%= TeachersPage.Description %></p>
+        <hr class="my-4">
+        <p>Me contacter : <%= TeachersPage.Email %></p>
+        <a class="btn btn-primary btn-lg" href="/Teacher/PlanningTeacher?id=<%Response.Write(Convert.ToInt32(Request.QueryString["id"]));%>" role="button">Voir le planning</a>
     </div>
 
-    <asp:Label Text="" ID="lblNumberDesc" runat="server"  />
-
-    <asp:Label Text="" ID="lblNumber" runat="server" CssClass="studentNum"  />
 
     <%if (Session["Teacher"] == null)
         { %>

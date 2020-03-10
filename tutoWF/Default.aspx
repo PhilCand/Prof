@@ -22,7 +22,6 @@
         <a href="/Teacher/Newteacher" class="btn btn-primary btn-outline btn-lg" >Créer un compte</a>
 
 
-
     </div>
 
 </asp:Content>

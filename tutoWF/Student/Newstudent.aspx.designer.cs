@@ -7,11 +7,22 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace tutoWF {
-    
-    
-    public partial class Newstudent {
-        
+namespace tutoWF
+{
+
+
+    public partial class Newstudent
+    {
+
+        /// <summary>
+        /// Contrôle lblCreateStudent.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCreateStudent;
+
         /// <summary>
         /// Contrôle txtName.
         /// </summary>
@@ -20,7 +31,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtName;
-        
+
         /// <summary>
         /// Contrôle rfvName.
         /// </summary>
@@ -29,7 +40,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
-        
+
         /// <summary>
         /// Contrôle txtFirstName.
         /// </summary>
@@ -38,7 +49,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
-        
+
         /// <summary>
         /// Contrôle RequiredFieldValidator4.
         /// </summary>
@@ -47,7 +58,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
+
         /// <summary>
         /// Contrôle txtEmail.
         /// </summary>
@@ -56,7 +67,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
+
         /// <summary>
         /// Contrôle RequiredFieldValidator1.
         /// </summary>
@@ -65,7 +76,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// Contrôle txtPassword.
         /// </summary>
@@ -74,7 +85,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
-        
+
         /// <summary>
         /// Contrôle RequiredFieldValidator2.
         /// </summary>
@@ -83,7 +94,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
         /// <summary>
         /// Contrôle txtPasswordConfirm.
         /// </summary>
@@ -92,7 +103,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPasswordConfirm;
-        
+
         /// <summary>
         /// Contrôle RequiredFieldValidator3.
         /// </summary>
@@ -101,7 +112,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
+
         /// <summary>
         /// Contrôle txtPhone.
         /// </summary>
@@ -110,7 +121,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPhone;
-        
+
         /// <summary>
         /// Contrôle RequiredFieldValidator5.
         /// </summary>
@@ -119,7 +130,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
+
         /// <summary>
         /// Contrôle txtAdress.
         /// </summary>
@@ -128,7 +139,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAdress;
-        
+
         /// <summary>
         /// Contrôle ddlGender.
         /// </summary>
@@ -137,7 +148,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlGender;
-        
+
         /// <summary>
         /// Contrôle submit.
         /// </summary>
@@ -146,7 +157,7 @@ namespace tutoWF {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submit;
-        
+
         /// <summary>
         /// Contrôle lblMessage.
         /// </summary>

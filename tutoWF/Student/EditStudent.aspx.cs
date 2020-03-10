@@ -18,10 +18,20 @@ namespace tutoWF.Student
         {
             lblMessage.Text = "";
             LoggedTeacher = (Models.Teacher)Session["Teacher"];
-            int teacherId = LoggedTeacher.Id;
-            int studentId = Convert.ToInt32(Request.QueryString["id"]);
-            legit = DAL.DAL.IsStudentOfTeacher(studentId, teacherId);
-            EditedStudent = DAL.DAL.GetStudentbyID(studentId);
+            if (Session["Teacher"] != null)
+            {
+                int teacherId = LoggedTeacher.Id;
+                int studentId = Convert.ToInt32(Request.QueryString["id"]);
+                legit = DAL.DAL.IsStudentOfTeacher(studentId, teacherId);
+                EditedStudent = DAL.DAL.GetStudentbyID(studentId);
+            }
+            if (Session["Student"] != null)
+            {
+                int studentId = ((Models.Student)Session["Student"]).Id;
+                EditedStudent = DAL.DAL.GetStudentbyID(studentId);
+                legit = true;
+            }           
+            
 
             if (!IsPostBack)
             {                
@@ -61,7 +71,7 @@ namespace tutoWF.Student
                 Models.Student newStudent = BuildStudent();
                 //string confirm = sanitizer.Sanitize(txtPasswordConfirm.Text);
                 //int teacherId = Convert.ToInt32(Request.QueryString["id"]);
-                int teacherId = LoggedTeacher.Id;
+                int teacherId = EditedStudent.Teacher_id;
 
 
                 if (txtEmail.Text != EditedStudent.Email)

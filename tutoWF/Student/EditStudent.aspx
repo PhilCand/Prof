@@ -8,18 +8,19 @@
 
     <% if (legit == true)
         { %>
-    <div>
-        <asp:TextBox runat="server" ID="txtName" PlaceHolder="Nom" CssClass="form-control " />
+    <div style="text-align:center">
+    <div class="col-lg-3 mt-5" style="display:inline-block">
+        <asp:TextBox runat="server" ID="txtName" PlaceHolder="Nom" CssClass="form-control input-lg" />
         <asp:RequiredFieldValidator runat="server" ID="rfvName" ControlToValidate="txtName" ErrorMessage="Nom requis" CssClass="error" />
 
         <asp:TextBox runat="server" ID="txtFirstName" PlaceHolder="Prenom" CssClass="form-control " />
-        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ControlToValidate="txtName" ErrorMessage="Nom requis" CssClass="error" />
+        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ControlToValidate="txtFirstName" ErrorMessage="Nom requis" CssClass="error" />
 
         <asp:TextBox runat="server" ID="txtEmail" PlaceHolder="Email" TextMode="Email" CssClass="form-control " />
         <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtEmail" ErrorMessage="Email requis" CssClass="error" />
 
         <asp:TextBox runat="server" ID="txtPhone" PlaceHolder="Telephone" CssClass="form-control " />
-        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ControlToValidate="txtName" ErrorMessage="Nom requis" CssClass="error" />
+        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ControlToValidate="txtPhone" ErrorMessage="Nom requis" CssClass="error" />
 
         <asp:TextBox runat="server" ID="txtAdress" PlaceHolder="Adresse" TextMode="MultiLine" CssClass="form-control" />
 
@@ -30,11 +31,17 @@
         </asp:DropDownList>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#passwordModal">
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#passwordModal">
             Changer le mot de passe
         </button>
 
-        <asp:Button runat="server" ID="submit" Text="Valider modifications" OnClick="submit_Click" CssClass="btn btn-success" /><br />
+        <br />
+
+        <a href="<%= Session["Teacher"] == null ? "/Student/ManageStudent" : "/Teacher/ManageTeacher" %>" class="btn btn-outline-danger mb-3">Retour</a>
+
+        <asp:Button runat="server" ID="submit" Text="Valider modifications" OnClick="submit_Click" CssClass="btn btn-outline-success mb-3" /><br />
+
+        
 
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
         <div class="reserveSpace">
@@ -43,6 +50,7 @@
             </div>
         </div>
     </div>
+        </div>
     <!-- Modal -->
     <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -11,24 +11,24 @@ namespace tutoWF.Teacher
 {
     public partial class HomeTeacher : Page
     {
+        public bool Legit { get; set; }
+        public Models.Teacher TeachersPage { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             int id = Convert.ToInt32(Request.QueryString["id"]);
-
             if (id <= 0) Response.Redirect("/Default");
 
-            Models.Teacher teachersPage = DAL.DAL.GetTeacherbyID(id);
+            TeachersPage = DAL.DAL.GetTeacherbyID(id);
 
-            lblTitle.Text = $"Portail de connection du professeur {teachersPage.FirstName} {teachersPage.Name}";
+            lblTitle.Text = $"Portail de connection du professeur {TeachersPage.FirstName} {TeachersPage.Name}";
 
             if (Session["Teacher"] != null)
             {
                 Models.Teacher loggedTeacher = (Models.Teacher)Session["Teacher"];
                 if (id == loggedTeacher.Id)
                 {
-                    lblNumber.Text = $"{teachersPage.Id}";
-                    lblNumberDesc.Text = $"Numéro à fournir à vos élèves : ";
+                    Legit = true;
                 }
             }
 
@@ -40,7 +40,7 @@ namespace tutoWF.Teacher
                     Response.Redirect($"/Teacher/PlanningTeacher?id={id}");
                 }
             }
-
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "SetDate", "SetCalendarDate()", true);
         }
 
         protected void btn_connectStudent_Click(object sender, EventArgs e)

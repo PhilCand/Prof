@@ -2,15 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:Label Text="" ID="lblPlanning" runat="server" />
+    <div class="title"><h1><asp:Label Text="" ID="lblPlanning" runat="server" /></h1></div>
     <br />
-    <asp:Label Text="" ID="lblConnected" runat="server" />
+    <div class="text-center"><asp:Label Text="" ID="lblConnected" runat="server" /></div>
     <br />
     <asp:HiddenField ID="hdnStudentId" runat="server" ClientIDMode="Static" />
-
     <script>
         var studentId = document.getElementById('hdnStudentId').value;
-
         function getUrlVars() {
             var vars = {};
             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
@@ -18,71 +16,44 @@
             });
             return vars;
         }
-
         var teacherId = getUrlVars()["id"];
-
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
-
             let xmlhttp = new XMLHttpRequest();
-
             xmlhttp.onreadystatechange = () => {
                 if (xmlhttp.readyState == 4) {
                     if (xmlhttp.status == 200) {
                         let evenements = JSON.parse(xmlhttp.responseText);
-
                         var calendar = new FullCalendar.Calendar(calendarEl, {
                             plugins: ['timeGrid', 'dayGrid', 'list', 'interaction'],
                             locale: 'fr',
                             events: evenements,
                             nowIndicator: true,
+                            defaultDate: sessionStorage.getItem("date") == null ? new Date().toISOString() : sessionStorage.getItem("date"),
+                            allDaySlot: false,
                             eventClick: function (event, jsEvent, view) {
-
+                                var date = calendar.getDate();
+                                sessionStorage.setItem("date", date.toISOString());
                                 $('#modalTitle').text(event.event.title);
                                 $('#lblStart').text(formatDate(event.event.start));
                                 $('#lblEnd').text(formatDate(event.event.end));
+                                $('#lblState').text(event.event.extendedProps.state);
+                                $('#lblDesc').text(event.event.extendedProps.description);
                                 $('#modalBody').html(event.event.description);
                                 $('#eventUrl').attr('href', event.url);
                                 $('#calendarModal').modal();
-                                if (studentId > 0) $('#btn_bookEvent').removeAttr('disabled');
-                                if (event.event.backgroundColor == "grey") {
-                                    $('#btn_bookEvent').attr('disabled', true);
-                                    $('#lblState').text("Réservé");
-                                } else $('#lblState').text("Disponible");
-
-                                $('#btn_bookEvent').click(function () {
-                                    let updatedEvent = {
-                                        start: event.event.start.toISOString(),
-                                        end: event.event.end.toISOString(),
-                                        id: event.event.id,
-                                        student_id: studentId,
-                                        title: $('#modalTitle').val()
-                                    }
-
-                                    $.ajax({
-                                        url: 'http://localhost:51023/api/events/' + event.event.id,
-                                        type: 'PUT',
-                                        dataType: 'json',
-                                        data: updatedEvent,
-                                        success: function (result) {
-                                            location.reload();
-                                        },
-                                        error: function (xhr, textStatus, errorThrown) {
-                                            console.log('Error in Operation');
-                                        }
-                                    });
-                                    $('#calendarModal').modal('toggle');
-                                });
+                                $('#MainContent_hfeventIdModal').val(event.event.id);
+                                if (studentId == 0) $('#MainContent_btn_bookEvent').attr('disabled', true);
+                                if (studentId > 0) $('#MainContent_btn_bookEvent').removeAttr('disabled');
+                                if (event.event.backgroundColor == "grey" || event.event.start <= Date.now()) $('#MainContent_btn_bookEvent').attr('disabled', true);
                             },
                         });
                         calendar.render();
                     }
                 }
             }
-
             xmlhttp.open('get', 'http://localhost:51023/api/events/' + teacherId, true);
             xmlhttp.send(null);
-
         });
 
     </script>
@@ -93,8 +64,10 @@
     <div id="calendarModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">                    
-                    <h4><label id="modalTitle" /></h4>
+                <div class="modal-header">
+                    <h4>
+                        <label id="modalTitle" />
+                    </h4>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                 </div>
                 <div id="modalBody" class="modal-body">
@@ -104,11 +77,15 @@
                     <label>Date fin : </label>
                     <label id="lblEnd"></label>
                     <br />
+                    <label>Description : </label>
+                    <label id="lblDesc"></label>
+                    <br />
                     <label>Etat : </label>
-                    <label id="lblState">Disponible</label>
+                    <label id="lblState"></label>
+                    <asp:HiddenField runat="server" ID="hfeventIdModal" Value="test" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="btn_bookEvent" data-dismiss="modal" disabled>Réserver</button>
+                    <asp:Button runat="server" CssClass="btn btn-success" ID="btn_bookEvent" Text="Réserver" OnClick="btn_bookEvent_Click" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                 </div>
             </div>

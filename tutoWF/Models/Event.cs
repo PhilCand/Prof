@@ -16,6 +16,7 @@ namespace tutoWF.Models
         public int teacher_id { get; set; }
         public int student_id { get; set; }
         public string backgroundColor { get; set; }
+        public string state { get; set; }
 
     }
 }

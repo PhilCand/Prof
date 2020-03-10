@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace tutoWF.Teacher
-{    
+{
     public partial class PlanningTeacher : System.Web.UI.Page
     {
 
@@ -16,7 +16,7 @@ namespace tutoWF.Teacher
 
             Models.Teacher teacher = DAL.DAL.GetTeacherbyID(id);
 
-            lblPlanning.Text = $"Vous êtes sur le planning du prof {teacher.FirstName} {teacher.Name}";
+            lblPlanning.Text = $"Planning du professeur {teacher.FirstName} {teacher.Name}";
 
             if (Session["Student"] != null)
             {
@@ -26,10 +26,18 @@ namespace tutoWF.Teacher
                     lblConnected.Text = "Vous êtes connecté";
                     hdnStudentId.Value = loggedStudent.Id.ToString();
                 }
-                else lblConnected.Text = "Vous n'êtes pas connecté";
+                else lblConnected.Text = $"Vous n'êtes pas élève de ce professeur, <a href='/Student/Newstudent?id={id}'>créer un compte<a>";
             }
-            else lblConnected.Text = "Vous n'êtes pas connecté";
+            else lblConnected.Text = $"Vous êtes visiteur, <a href='/Teacher/HomeTeacher?id={id}'> connectez-vous </a> ou <a href='/Student/Newstudent?id={id}'>créez un compte<a> pour réserver";
 
+           
+        }
+
+        protected void btn_bookEvent_Click(object sender, EventArgs e)
+        {
+            int eventId = Int32.Parse(hfeventIdModal.Value);
+            int studentId = Int32.Parse(hdnStudentId.Value);
+            DAL.DAL.BookEvent(eventId, studentId);
         }
     }
 }

@@ -41,5 +41,21 @@ function showSuccessAlert() {
     });
 }
 
+$('#MainContent_btn_update').click(function () {
+    alert("ok");
+    sessionStorage.setItem("date", date.toISOString());
+});
 
+$('#MainContent_btn_delete').click(function () {
+    sessionStorage.setItem("date", date.toISOString());
+});
+
+$('#MainContent_btn_bookEvent').click(function () {
+    sessionStorage.setItem("date", date.toISOString());
+});
+
+function SetCalendarDate(){
+
+    sessionStorage.setItem("date", Date().toISOString());
+}
 

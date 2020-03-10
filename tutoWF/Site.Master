@@ -9,18 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%: Page.Title %> - Mon ASP.NET Application</title>
-    <link href='/Fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='/Fullcalendar/daygrid/main.css' rel='stylesheet' />
-    <link href='/Fullcalendar/timegrid/main.css' rel='stylesheet' />
-    <link href='/Fullcalendar/list/main.css' rel='stylesheet' />
 
-    <script src='/Fullcalendar/core/main.js'></script>
-    <script src='/Fullcalendar/daygrid/main.js'></script>
-    <script src='/Fullcalendar/timegrid/main.js'></script>
-    <script src='/fullcalendar/core/locales/fr.js'></script>
-    <script src='/fullcalendar/interaction/main.js'></script>
-    <script src='/fullcalendar/list/main.js'></script>
-    <script src='/Scripts/scripts.js'></script>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -51,6 +40,18 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+    <link href='/Fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='/Fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href='/Fullcalendar/timegrid/main.css' rel='stylesheet' />
+    <link href='/Fullcalendar/list/main.css' rel='stylesheet' />  
+        
+    <script src='/Fullcalendar/core/main.js'></script>
+    <script src='/Fullcalendar/daygrid/main.js'></script>
+    <script src='/Fullcalendar/timegrid/main.js'></script>
+    <script src='/Fullcalendar/core/locales/fr.js'></script>
+    <script src='/Fullcalendar/interaction/main.js'></script>
+    <script src='/Fullcalendar/list/main.js'></script>
+    <script src='/Scripts/scripts.js'></script>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Réserve ton prof</a>
