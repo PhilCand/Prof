@@ -7,6 +7,7 @@
     </div>
     <label>Votre professeur : </label><asp:Label Text="" ID="lblTeacher" runat="server" />
     <br />
+    <asp:Button Text="Voir le planning" runat="server" CssClass="btn btn-outline-primary mb-3" ID="btn_planningTeacher" OnClick="btn_planningTeacher_Click" />
     <br />
     <asp:Button Text="Editer vos informations" runat="server" CssClass="btn btn-outline-primary mb-3" ID="btn_editStudent" OnClick="btn_editStudent_Click" />
     <br />
@@ -17,7 +18,7 @@
 
         <asp:TextBox runat="server" TextMode="Date" AutoPostBack="true" CssClass="form-control float-right mr-2" ID="tbDateDebut" OnTextChanged="tbDateDebut_TextChanged" />
         <label class="float-right mt-2 mr-1">Date début :</label>
-        <asp:GridView runat="server" AllowSorting="True" AutoGenerateColumns="False" ID="gvEvent" DataKeyNames="Id" CssClass="table table-hover table-sm table-borderless " OnSorting="gvEvent_Sorting" OnRowDataBound="gvEvent_RowDataBound" OnRowDeleting="gvEvent_RowDeleting">
+        <asp:GridView runat="server" AllowSorting="True" AutoGenerateColumns="False" ID="gvEvent" DataKeyNames="Id" CssClass="table table-hover table-sm table-borderless " OnSorting="gvEvent_Sorting" OnRowDataBound="gvEvent_RowDataBound" OnRowDeleting="gvEvent_RowDeleting" ShowHeaderWhenEmpty="true">
             <HeaderStyle CssClass="thead-dark" />
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />

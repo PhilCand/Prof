@@ -395,6 +395,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Success.aspx" />
+    <Content Include="Teacher\EditTeacher.aspx" />
     <Content Include="Teacher\HomeTeacher.aspx" />
     <Content Include="Teacher\ManageTeacher.aspx" />
     <Content Include="Teacher\Newteacher.aspx" />
@@ -500,6 +501,13 @@
     </Compile>
     <Compile Include="Success.aspx.designer.cs">
       <DependentUpon>Success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\EditTeacher.aspx.cs">
+      <DependentUpon>EditTeacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Teacher\EditTeacher.aspx.designer.cs">
+      <DependentUpon>EditTeacher.aspx</DependentUpon>
     </Compile>
     <Compile Include="Teacher\HomeTeacher.aspx.cs">
       <DependentUpon>HomeTeacher.aspx</DependentUpon>

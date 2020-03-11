@@ -30,7 +30,8 @@ namespace tutoWF.Teacher
             }
             else lblConnected.Text = $"Vous êtes visiteur, <a href='/Teacher/HomeTeacher?id={id}'> connectez-vous </a> ou <a href='/Student/Newstudent?id={id}'>créez un compte<a> pour réserver";
 
-           
+            if(!IsPostBack)ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:SetCalendarDate(); ", true);
+
         }
 
         protected void btn_bookEvent_Click(object sender, EventArgs e)
@@ -38,6 +39,15 @@ namespace tutoWF.Teacher
             int eventId = Int32.Parse(hfeventIdModal.Value);
             int studentId = Int32.Parse(hdnStudentId.Value);
             DAL.DAL.BookEvent(eventId, studentId);
+            ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert('Réservation effectuée');", true);
+
+        }
+
+        protected void btn_freeEvent_Click(object sender, EventArgs e)
+        {
+            DAL.DAL.FreeEvent(hfeventIdModal.Value);
+            ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert('Réservation annulée');", true);
+
         }
     }
 }

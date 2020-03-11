@@ -13,9 +13,9 @@ namespace tutoWF.DAL
 {
     public class DAL
     {
+        public static string _connectionString = ConfigurationManager.ConnectionStrings["connection"].ToString();
 
         #region STUDENT
-        public static string _connectionString = ConfigurationManager.ConnectionStrings["connection"].ToString();
 
         public static List<string> GetEmailFromStudent(int teacherId)
         {
@@ -63,10 +63,8 @@ namespace tutoWF.DAL
                     student.Gender = (bool)rdr["Gender"];
                     student.FirstName = rdr["FirstName"].ToString();
                     student.Teacher_id = (int)rdr["Teacher_id"];
-
                 }
             }
-
             return student;
         }
 
@@ -93,8 +91,6 @@ namespace tutoWF.DAL
             }
         }
 
-
-
         public static bool CreateStudent(Models.Student newStudent)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -119,10 +115,8 @@ namespace tutoWF.DAL
                     if (result < 0) return false;
 
                     else return true;
-
                 }
             }
-
         }
 
         public static void DeleteStudent(int studentId)
@@ -137,10 +131,8 @@ namespace tutoWF.DAL
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
-
                 }
             }
-
         }
 
         public static bool UpdateStudent(Models.Student updatedStudent)
@@ -155,23 +147,18 @@ namespace tutoWF.DAL
                     command.Parameters.AddWithValue("@name", updatedStudent.Name);
                     command.Parameters.AddWithValue("@firstname", updatedStudent.FirstName);
                     command.Parameters.AddWithValue("@email", updatedStudent.Email);
-                    //command.Parameters.AddWithValue("@password", updatedStudent.Password);
                     command.Parameters.AddWithValue("@phone", updatedStudent.Phone);
                     command.Parameters.AddWithValue("@gender", updatedStudent.Gender);
                     command.Parameters.AddWithValue("@adress", updatedStudent.Adress);
-                    //command.Parameters.AddWithValue("@teacher_id", updatedStudent.Teacher_id);
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
 
-                    // Check Error
                     if (result < 0) return false;
 
                     else return true;
-
                 }
             }
-
         }
 
         public static bool IsStudentOfTeacher(int studentId, int teacherId)
@@ -220,11 +207,21 @@ namespace tutoWF.DAL
                     teacher.Email = rdr["Email"].ToString();
                     teacher.Gender = (bool)rdr["Gender"];
                     teacher.FirstName = rdr["FirstName"].ToString();
-
                 }
             }
-
-            return teacher;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                String query2 = $"SELECT ts.Subject_id, s.Name FROM Teacher_Subject as ts JOIN Subject s ON ts.Subject_id = s.Id WHERE Teacher_id = {id};";
+                SqlCommand myCommand2 = new SqlCommand(query2, connection);
+                SqlDataReader rdr2 = myCommand2.ExecuteReader();
+                while (rdr2.Read())
+                {
+                    Subject newSubject = new Subject(rdr2["Name"].ToString(), (int)rdr2["Subject_id"]);
+                    teacher.Subjects.Add(newSubject);
+                }
+                return teacher;
+            }
         }
 
         internal static int LoginTeacher(string email, string password)
@@ -311,8 +308,48 @@ namespace tutoWF.DAL
                     if (result > 0 && newTeacherId > 0) return true;
                     else return false;
                 }
+            }
+        }
 
+        internal static bool UpdateTeacher(Models.Teacher newTeacher, ListBox lbSubject)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "UPDATE Teacher SET Name = @name, FirstName = @firstname, Email = @email, Phone = @phone, Gender = @gender, Adress = @adress, Description = @description WHERE Id = @id";
 
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", newTeacher.Id);
+                    command.Parameters.AddWithValue("@name", newTeacher.Name);
+                    command.Parameters.AddWithValue("@firstname", newTeacher.FirstName);
+                    command.Parameters.AddWithValue("@email", newTeacher.Email);
+                    command.Parameters.AddWithValue("@phone", newTeacher.Phone);
+                    command.Parameters.AddWithValue("@gender", newTeacher.Gender);
+                    command.Parameters.AddWithValue("@adress", newTeacher.Adress);
+                    command.Parameters.AddWithValue("@description", newTeacher.Description);
+
+                    connection.Open();
+
+                    int result = command.ExecuteNonQuery();
+                }
+
+                String query2 = $"DELETE FROM Teacher_Subject WHERE Teacher_id = {newTeacher.Id};";
+
+                foreach (ListItem li in lbSubject.Items)
+                {
+                    if (li.Selected)
+                    {
+                        query2 += $"INSERT INTO Teacher_Subject (Teacher_id, Subject_id) VALUES ({newTeacher.Id},{li.Value});";
+                    }
+                }
+
+                using (SqlCommand command = new SqlCommand(query2, connection))
+                {
+                    int result = command.ExecuteNonQuery();
+
+                    if (result > 0) return true;
+                    else return false;
+                }
             }
         }
 
@@ -343,17 +380,16 @@ namespace tutoWF.DAL
         }
 
         #region EVENT
+
         public static void LoadSubjects(ListBox lb)
         {
-
             DataTable subjects = new DataTable();
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
-
                 try
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT Name, Id FROM Subject", con);
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT Name, Id FROM Subject ORDER BY Name", con);
                     adapter.Fill(subjects);
 
                     lb.DataSource = subjects;
@@ -500,11 +536,8 @@ namespace tutoWF.DAL
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
-
                 }
-
             }
-
         }
 
         public static Event GetEventbyId(int event_id, int teacher_id)
@@ -512,7 +545,6 @@ namespace tutoWF.DAL
             Event oneEvent = new Event();
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-
                 connection.Open();
                 String query = $"SELECT * FROM Event WHERE Teacher_id={teacher_id} AND Id = {event_id}";
                 SqlCommand myCommand = new SqlCommand(query, connection);
@@ -521,7 +553,6 @@ namespace tutoWF.DAL
 
                 while (rdr.Read())
                 {
-
                     oneEvent.id = (int)rdr["Id"];
                     oneEvent.title = rdr["Title"].ToString();
                     oneEvent.start = (DateTime)rdr["Start_date"];
@@ -532,7 +563,6 @@ namespace tutoWF.DAL
                     oneEvent.backgroundColor = rdr["BackgroundColor"].ToString();
                     oneEvent.description = rdr["Description"].ToString();
                 }
-
             }
             return oneEvent;
         }

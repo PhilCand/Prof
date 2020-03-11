@@ -90,7 +90,7 @@ namespace tutoWF.Student
 
                 if (DAL.DAL.UpdateStudent(newStudent))
                 {
-                    ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert();", true);                    
+                    ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert('Modifications enregistrées');", true);
                 }
 
                 else this.lblMessage.Text = "Une erreur est survenue, réessayez";
@@ -113,7 +113,7 @@ namespace tutoWF.Student
 
             if (DAL.DAL.UpdatePassword("Student", EditedStudent.Id, password))
             {
-                ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert();", true);
+                ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert('Mot de passe modifié');", true);
             }
 
         }

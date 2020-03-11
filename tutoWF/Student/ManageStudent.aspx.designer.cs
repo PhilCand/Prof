@@ -31,6 +31,15 @@ namespace tutoWF.Student {
         protected global::System.Web.UI.WebControls.Label lblTeacher;
         
         /// <summary>
+        /// Contrôle btn_planningTeacher.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_planningTeacher;
+        
+        /// <summary>
         /// Contrôle btn_editStudent.
         /// </summary>
         /// <remarks>

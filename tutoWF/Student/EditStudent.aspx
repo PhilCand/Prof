@@ -44,11 +44,11 @@
         
 
         <asp:Label ID="lblMessage" runat="server" CssClass="error"></asp:Label>
-        <div class="reserveSpace">
+<%--        <div class="reserveSpace">
             <div class="alert alert-success collapse mt-4 mb-4" role="alert" id="alert_success_edit">
                 Modifications enregistrées
             </div>
-        </div>
+        </div>--%>
     </div>
         </div>
     <!-- Modal -->

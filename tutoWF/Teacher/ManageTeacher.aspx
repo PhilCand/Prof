@@ -16,6 +16,8 @@
     <br />
     <asp:HyperLink ID="hlPlanning" runat="server" CssClass="btn btn-outline-primary mb-3">Gestion du planning</asp:HyperLink>
     <br />
+    <asp:Button Text="Editer vos informations" runat="server" CssClass="btn btn-outline-primary mb-3" ID="btn_editTeacher" OnClick="btn_editTeacher_Click" />
+    <br />
 
     <%-- GridView cours --%>
 
@@ -32,7 +34,7 @@
 
         <asp:TextBox runat="server" TextMode="Date" AutoPostBack="true" CssClass="form-control float-right mr-2" ID="tbDateDebut" OnTextChanged="tbDateDebut_TextChanged" />
         <label class="float-right mt-2 mr-1">Date début :</label>
-        <asp:GridView runat="server" AllowSorting="true" AutoGenerateColumns="False" ID="gvEvent" DataKeyNames="Id" CssClass="table table-hover table-sm table-borderless " OnSorting="gvEvent_Sorting">
+        <asp:GridView runat="server" AllowSorting="true" AutoGenerateColumns="False" ID="gvEvent" DataKeyNames="Id" CssClass="table table-hover table-sm table-borderless " OnSorting="gvEvent_Sorting" ShowHeaderWhenEmpty="true">
             <HeaderStyle CssClass="thead-dark" />
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
@@ -52,9 +54,9 @@
     <%-- GridView eleve --%>
 
     <div class="listeEleve">
-        <h3>Liste de vos élèves : </h3>
+        <h3 class="mt-5">Liste de vos élèves : </h3>
 
-        <asp:GridView runat="server" AllowSorting="true" AutoGenerateColumns="False" ID="gvStudent" OnRowDeleting="gvStudent_RowDeleting" DataKeyNames="Id" CssClass="table table-hover table-sm table-borderless " OnRowEditing="gvStudent_RowEditing" OnSorting="gvStudent_Sorting">
+        <asp:GridView runat="server" AllowSorting="true" AutoGenerateColumns="False" ID="gvStudent" OnRowDeleting="gvStudent_RowDeleting" DataKeyNames="Id" CssClass="table table-hover table-sm table-borderless " OnRowEditing="gvStudent_RowEditing" OnSorting="gvStudent_Sorting" ShowHeaderWhenEmpty="true">
             <HeaderStyle CssClass="thead-dark" />
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" HeaderStyle-CssClass="thead" SortExpression="Id" />

@@ -2,9 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="title"><h1><asp:Label Text="" ID="lblPlanning" runat="server" /></h1></div>
+    <div class="title mb-0">
+        <h1>
+            <asp:Label Text="" ID="lblPlanning" runat="server" /></h1>
+    </div>
     <br />
-    <div class="text-center"><asp:Label Text="" ID="lblConnected" runat="server" /></div>
+    <div class="text-center mt-0">
+        <asp:Label Text="" ID="lblConnected" runat="server"/></div>
     <br />
     <asp:HiddenField ID="hdnStudentId" runat="server" ClientIDMode="Static" />
     <script>
@@ -46,6 +50,10 @@
                                 if (studentId == 0) $('#MainContent_btn_bookEvent').attr('disabled', true);
                                 if (studentId > 0) $('#MainContent_btn_bookEvent').removeAttr('disabled');
                                 if (event.event.backgroundColor == "grey" || event.event.start <= Date.now()) $('#MainContent_btn_bookEvent').attr('disabled', true);
+                                if (event.event.extendedProps.student_id == 0) $('#MainContent_btn_freeEvent').attr('disabled', true);
+                                if (event.event.start >= Date.now() && event.event.extendedProps.student_id == studentId && studentId > 0) {
+                                    $('#MainContent_btn_freeEvent').removeAttr('disabled');                                   
+                                }else $('#MainContent_btn_freeEvent').attr('disabled', true);
                             },
                         });
                         calendar.render();
@@ -86,6 +94,7 @@
                 </div>
                 <div class="modal-footer">
                     <asp:Button runat="server" CssClass="btn btn-success" ID="btn_bookEvent" Text="Réserver" OnClick="btn_bookEvent_Click" />
+                    <asp:Button runat="server" CssClass="btn btn-warning" ID="btn_freeEvent" Text="Libérer" OnClick="btn_freeEvent_Click" />
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                 </div>
             </div>

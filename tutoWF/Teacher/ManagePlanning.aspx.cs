@@ -15,7 +15,8 @@ namespace tutoWF
         protected void Page_Load(object sender, EventArgs e)
         {
             Models.Teacher loggedTeacher = (Models.Teacher)Session["Teacher"];
-            hdnTeacherId.Value = loggedTeacher.Id.ToString();
+            hdnTeacherId.Value = loggedTeacher.Id.ToString();           
+
         }
 
         protected void btn_update_Click(object sender, EventArgs e)

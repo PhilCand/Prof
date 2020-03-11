@@ -91,5 +91,10 @@ namespace tutoWF.Student
                 }
             }
         }
+
+        protected void btn_planningTeacher_Click(object sender, EventArgs e)
+        {
+            Response.Redirect($"/Teacher/PlanningTeacher?id={LoggedStudent.Teacher_id}");
+        }
     }
 }

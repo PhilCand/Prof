@@ -40,7 +40,7 @@ namespace tutoWF.Teacher
                     Response.Redirect($"/Teacher/PlanningTeacher?id={id}");
                 }
             }
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "SetDate", "SetCalendarDate()", true);
+            
         }
 
         protected void btn_connectStudent_Click(object sender, EventArgs e)

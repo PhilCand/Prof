@@ -9,7 +9,7 @@ namespace tutoWF.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Teacher> Teachers { get; set; }
+        //public List<Teacher> Teachers { get; set; }
 
         public Subject(string name, int id)
         {

@@ -40,18 +40,18 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-    <link href='/Fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='/Fullcalendar/daygrid/main.css' rel='stylesheet' />
-    <link href='/Fullcalendar/timegrid/main.css' rel='stylesheet' />
-    <link href='/Fullcalendar/list/main.css' rel='stylesheet' />  
-        
-    <script src='/Fullcalendar/core/main.js'></script>
-    <script src='/Fullcalendar/daygrid/main.js'></script>
-    <script src='/Fullcalendar/timegrid/main.js'></script>
-    <script src='/Fullcalendar/core/locales/fr.js'></script>
-    <script src='/Fullcalendar/interaction/main.js'></script>
-    <script src='/Fullcalendar/list/main.js'></script>
-    <script src='/Scripts/scripts.js'></script>
+        <link href='/Fullcalendar/core/main.css' rel='stylesheet' />
+        <link href='/Fullcalendar/daygrid/main.css' rel='stylesheet' />
+        <link href='/Fullcalendar/timegrid/main.css' rel='stylesheet' />
+        <link href='/Fullcalendar/list/main.css' rel='stylesheet' />
+
+        <script src='/Fullcalendar/core/main.js'></script>
+        <script src='/Fullcalendar/daygrid/main.js'></script>
+        <script src='/Fullcalendar/timegrid/main.js'></script>
+        <script src='/Fullcalendar/core/locales/fr.js'></script>
+        <script src='/Fullcalendar/interaction/main.js'></script>
+        <script src='/Fullcalendar/list/main.js'></script>
+        <script src='/Scripts/scripts.js'></script>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">Réserve ton prof</a>
@@ -78,21 +78,27 @@
                     <%}%>
                 </ul>
                 <%if (Session["Teacher"] != null || Session["Student"] != null)
-                        { %>
-                <span class="navbar-text mt-0"><asp:Label Text="" ID="lblNameConnected" CssClass="navbar-text mt-0" runat="server" /></span>
-                 <%}%>
-
+                    { %>
+                <span class="navbar-text mt-0">
+                    <asp:Label Text="" ID="lblNameConnected" CssClass="navbar-text mt-0" runat="server" /></span>
+                <%}%>
             </div>
         </nav>
+        <div class="reserveSpace">
+            <div class="alert alert-success text-center collapse" role="alert" id="alert_success_edit">
+                <label class="mt-0 mb-0" id="lbl_alert_succes"></label>
+            </div>
+        </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
+
+            <footer class="mt-5">
+                <hr />
                 <p>&copy; <%: DateTime.Now.Year %> - Philippe Canduro AFPA Projet fin de formation</p>
             </footer>
         </div>
-        
+
     </form>
 </body>
 </html>

@@ -23,6 +23,8 @@ namespace tutoWF.Teacher
 
             hlPlanning.Attributes.Add("href", "/Teacher/ManagePlanning");
 
+            ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:SetCalendarDate(); ", true);
+
             lblNumber.Text = $"{loggedTeacher.Id}";
             lblNumberDesc.Text = $"Numéro à fournir à vos élèves : ";
 
@@ -32,7 +34,7 @@ namespace tutoWF.Teacher
                 BindDataSourceEvent();
             }
 
-            gvStudent.HeaderRow.TableSection = TableRowSection.TableHeader;
+            //gvStudent.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         public void SqldsExample_Selecting(object sender, SqlDataSourceCommandEventArgs e)
@@ -47,6 +49,7 @@ namespace tutoWF.Teacher
             DAL.DAL.DeleteStudent(deleteStudentId);
 
             BindDataSourceStudent();
+            BindDataSourceEvent();
         }
 
         protected void gvStudent_RowEditing(object sender, GridViewEditEventArgs e)
@@ -120,8 +123,10 @@ namespace tutoWF.Teacher
             BindDataSourceEvent();
         }
 
-
-
+        protected void btn_editTeacher_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Teacher/EditTeacher");
+        }
     }
 
 }

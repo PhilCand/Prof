@@ -35,7 +35,8 @@ function confirmDelete() {
     return confirm("Confirmer la suppression ?");
 }
 
-function showSuccessAlert() {
+function showSuccessAlert(message) {
+    $("#lbl_alert_succes").text(message);
     $("#alert_success_edit").fadeTo(2000, 500).slideUp(500, function () {
         $("#alert_success_edit").slideUp(500);
     });
@@ -54,8 +55,7 @@ $('#MainContent_btn_bookEvent').click(function () {
     sessionStorage.setItem("date", date.toISOString());
 });
 
-function SetCalendarDate(){
-
-    sessionStorage.setItem("date", Date().toISOString());
+function SetCalendarDate() {
+    sessionStorage.setItem("date", new Date().toISOString());
 }
 

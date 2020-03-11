@@ -20,7 +20,9 @@ namespace tutoWF
         protected void Page_Load(object sender, EventArgs e)
         {
             lblMessage.Text = "";
-            
+            UrlTeacherId = Convert.ToInt32(Request.QueryString["id"]);
+
+
             if (!IsPostBack)
             {
                 if (Session["Teacher"] != null)
@@ -28,7 +30,6 @@ namespace tutoWF
                     Models.Teacher loggedTeacher = (Models.Teacher)Session["Teacher"];
                     LoggedTeacherId = loggedTeacher.Id;
                 }
-                UrlTeacherId = Convert.ToInt32(Request.QueryString["id"]);
                 Models.Teacher teacher = DAL.DAL.GetTeacherbyID(UrlTeacherId);
                 lblCreateStudent.Text = $"Professeur : {teacher.FirstName} {teacher.Name}";
                 ViewState["Referrer"] = Request.UrlReferrer.ToString();
@@ -44,7 +45,6 @@ namespace tutoWF
                 Models.Student newStudent = BuildStudent();
                 string confirm = sanitizer.Sanitize(txtPasswordConfirm.Text);
                 
-
 
                 if (newStudent.Password != confirm)
                 {
