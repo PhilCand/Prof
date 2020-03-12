@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using tutoWF.Models;
 
 namespace tutoWF.Teacher
 {
@@ -14,17 +15,11 @@ namespace tutoWF.Teacher
         protected void Page_Load(object sender, EventArgs e)
         {
             Models.Teacher loggedTeacher = (Models.Teacher)Session["Teacher"];
-
             teacherId = loggedTeacher.Id.ToString();
-
             hdnTeacherId.Value = teacherId;
-
             lblManageTeacher.Text = $"Interface de gestion du prof {loggedTeacher.FirstName} {loggedTeacher.Name}";
-
             hlPlanning.Attributes.Add("href", "/Teacher/ManagePlanning");
-
             ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:SetCalendarDate(); ", true);
-
             lblNumber.Text = $"{loggedTeacher.Id}";
             lblNumberDesc.Text = $"Numéro à fournir à vos élèves : ";
 
@@ -46,9 +41,7 @@ namespace tutoWF.Teacher
         protected void gvStudent_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int deleteStudentId = Int32.Parse(gvStudent.DataKeys[e.RowIndex].Value.ToString());
-
             DAL.DAL.DeleteStudent(deleteStudentId);
-
             BindDataSourceStudent();
             BindDataSourceEvent();
         }
@@ -127,6 +120,54 @@ namespace tutoWF.Teacher
         protected void btn_editTeacher_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Teacher/EditTeacher");
+        }
+
+        protected void gvEvent_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int EventId = Int32.Parse(gvEvent.DataKeys[e.RowIndex].Value.ToString());
+            DAL.DAL.DeleteEvent(EventId);
+            BindDataSourceEvent();
+        }
+
+        protected void gvEvent_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            int EventId = Int32.Parse(gvEvent.DataKeys[e.NewEditIndex].Value.ToString());
+            DAL.DAL.FreeEvent(EventId);
+            BindDataSourceEvent();
+        }
+
+        protected void btn_comment_Click(object sender, EventArgs e)
+        {
+            Button linkbutton = (Button)sender;  // get the link button which trigger the event
+            GridViewRow row = (GridViewRow)linkbutton.NamingContainer; // get the GridViewRow that contains the linkbutton
+            ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#CommentModal').modal()", true);//show the modal
+            hf_event_id.Value =row.Cells[0].Text;
+            Models.Event editedEvent = DAL.DAL.GetEventbyId(int.Parse(row.Cells[0].Text), int.Parse(teacherId));
+            tbModalDesc.Text = editedEvent.description;
+        }
+
+        protected void btn_update_comment_Click(object sender, EventArgs e)
+        {
+            DAL.DAL.UpdateEventTitleDesc(int.Parse(hf_event_id.Value), tbModalDesc.Text);
+            ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert('Modifications enregistrées');", true);
+
+        }
+
+        protected void gvEvent_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            DateTime parsedDate = DateTime.Today;
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                if (e.Row.Cells[1].Text != "")
+                {
+                    parsedDate = DateTime.Parse(e.Row.Cells[1].Text);
+                }
+                if (parsedDate < DateTime.Today || e.Row.Cells[3].Text == "Libre")
+                {
+                    ((Button)e.Row.FindControl("btn_freeEvent")).Enabled = false;
+                }
+            }
         }
     }
 

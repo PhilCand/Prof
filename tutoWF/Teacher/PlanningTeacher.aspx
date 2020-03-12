@@ -47,12 +47,12 @@
                                     event.el.style.backgroundColor = "";
                                 }
                             },
-                            eventClick: function (event, jsEvent, view) {
+                            eventClick: function (event, jsEvent, view) {                                
                                 var date = calendar.getDate();
                                 sessionStorage.setItem("date", date.toISOString());
                                 if (studentId == event.event.extendedProps.student_id.toString()) {
                                     $('#modalTitle').text(event.event.title);
-                                } else $('#modalTitle').text("");
+                                } else { $('#modalTitle').text(""); }
                                 $('#lblStart').text(formatDate(event.event.start));
                                 $('#lblEnd').text(formatDate(event.event.end));
                                 $('#lblState').text(event.event.extendedProps.state);
@@ -61,6 +61,8 @@
                                 $('#eventUrl').attr('href', event.url);
                                 $('#calendarModal').modal();
                                 $('#MainContent_hfeventIdModal').val(event.event.id);
+                                $('#lbl_test').text("ok");
+
                                 if (studentId == 0) $('#MainContent_btn_bookEvent').attr('disabled', true);
                                 if (studentId > 0) $('#MainContent_btn_bookEvent').removeAttr('disabled');
                                 if (event.event.backgroundColor == "grey" || event.event.start <= Date.now()) $('#MainContent_btn_bookEvent').attr('disabled', true);
@@ -90,6 +92,9 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                 </div>
                 <div id="modalBody" class="modal-body">
+
+                    <asp:HiddenField runat="server" ID="hfeventIdModal" />
+
                     <label>Date début : </label>
                     <label id="lblStart"></label>
                     <br />
@@ -100,13 +105,11 @@
                     <label id="lblState"></label>
                     <br />
                     <label>Eleve : </label>
-                    <label id="modalTitle" />
+                    <label id="modalTitle"></label>
                     <br />
                     <label>Description : </label>
                     <label id="lblDesc"></label>
-                    <br />
-
-                    <asp:HiddenField runat="server" ID="hfeventIdModal" Value="test" />
+                    <br />                      
                 </div>
                 <div class="modal-footer">
                     <asp:Button runat="server" CssClass="btn btn-success" ID="btn_bookEvent" Text="Réserver" OnClick="btn_bookEvent_Click" />

@@ -441,45 +441,7 @@ namespace tutoWF.DAL
             }
 
         }
-
-        //public static Event[] GetEventsbyTeacherStudentId(int TeacherId, int StudentId)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(_connectionString))
-        //    {
-        //        List<Event> Events = new List<Event>();
-        //        connection.Open();
-        //        String query = $"SELECT * FROM Event WHERE Teacher_id={TeacherId}";
-        //        SqlCommand myCommand = new SqlCommand(query, connection);
-
-        //        SqlDataReader rdr = myCommand.ExecuteReader();
-
-        //        while (rdr.Read())
-        //        {
-        //            Event newEvent = new Event();
-
-        //            newEvent.id = (int)rdr["Id"];
-        //            newEvent.title = rdr["Title"].ToString();
-        //            newEvent.start = (DateTime)rdr["Start_date"];
-        //            newEvent.end = (DateTime)rdr["End_date"];
-        //            newEvent.url = rdr["Url"].ToString();
-        //            newEvent.teacher_id = (int)rdr["Teacher_id"];
-        //            newEvent.student_id = GetValue<int>(rdr["Student_id"]);
-        //            if (newEvent.student_id == StudentId) newEvent.backgroundColor = "red";
-        //            else newEvent.backgroundColor = rdr["BackgroundColor"].ToString();
-        //            newEvent.description = rdr["Description"].ToString();
-        //            newEvent.state = rdr["State"].ToString();
-
-        //            Events.Add(newEvent);
-        //        }
-
-        //        Event[] EventsArr = Events.ToArray();
-
-
-        //        return EventsArr;
-        //    }
-
-        //}
-
+               
         public static int CreateEvent(Event newEvent)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
