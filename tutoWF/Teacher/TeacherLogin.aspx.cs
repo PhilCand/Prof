@@ -34,7 +34,7 @@ namespace tutoWF.Teacher
 
             Session["Teacher"] = DAL.DAL.GetTeacherbyID(id);
 
-            Response.Redirect($"/Teacher/HomeTeacher?id={id}");
+            Response.Redirect($"/Teacher/ManageTeacher");
         }
     }
 }

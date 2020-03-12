@@ -18,6 +18,12 @@ namespace tutoWF
             return DAL.DAL.GetEventsbyTeacherId(id);
         }
 
+        //[HttpGet]
+        //public IEnumerable<Event> Get(int TeacherId, int studentId)
+        //{
+        //    return DAL.DAL.GetEventsbyTeacherStudentId(TeacherId, studentId);
+        //}
+
         [HttpGet]
         public Event Get(int event_id, int teacher_id)
         {

@@ -12,6 +12,7 @@ namespace tutoWF.Teacher
     public partial class HomeTeacher : Page
     {
         public bool Legit { get; set; }
+        public bool TeacherExist { get; set; } = false;
         public Models.Teacher TeachersPage { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -20,6 +21,7 @@ namespace tutoWF.Teacher
             if (id <= 0) Response.Redirect("/Default");
 
             TeachersPage = DAL.DAL.GetTeacherbyID(id);
+            if (TeachersPage.Id > 0) TeacherExist = true;
 
             lblTitle.Text = $"Portail de connection du professeur {TeachersPage.FirstName} {TeachersPage.Name}";
 
@@ -37,7 +39,7 @@ namespace tutoWF.Teacher
                 Models.Student loggedStudent = (Models.Student)Session["Student"];
                 if (id == loggedStudent.Teacher_id)
                 {
-                    Response.Redirect($"/Teacher/PlanningTeacher?id={id}");
+                    Response.Redirect($"/Student/ManageStudent");
                 }
             }
             
@@ -64,7 +66,7 @@ namespace tutoWF.Teacher
 
             Session["Student"] = DAL.DAL.GetStudentbyID(studentId);
 
-            Response.Redirect($"/Teacher/PlanningTeacher?id={id}");
+            Response.Redirect($"/Student/ManageStudent");
 
         }
     }

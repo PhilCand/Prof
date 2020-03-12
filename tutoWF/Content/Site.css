@@ -198,3 +198,13 @@ th a {
     line-height: 30px;
     padding: 0px 15px;
 }
+
+.hideTitle {
+    visibility: hidden;
+}
+
+.black-background {
+    color: white !important;
+    background-color: black !important;
+    border-color: black;
+}

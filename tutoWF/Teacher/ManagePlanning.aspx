@@ -38,6 +38,8 @@
                             nowIndicator: true,
                             defaultDate: sessionStorage.getItem("date") == null ? new Date().toISOString() : sessionStorage.getItem("date"),
                             editable: true,
+                            minTime: "07:00:00",
+                            maxTime: "21:00:00",
                             eventDrop: (infos) => {
                                 let movedEvent = {
                                     start: infos.event.start.toISOString(),
@@ -104,7 +106,7 @@
                             eventClick: function (event, jsEvent, view) {
                                 var date = calendar.getDate();
                                 sessionStorage.setItem("date", date.toISOString());
-                                $('#MainContent_tbModalTitle').val(event.event.title);
+                                $('#lblModalTitle').text(event.event.title);
                                 $('#lblStart').text(formatDate(event.event.start));
                                 $('#lblEnd').text(formatDate(event.event.end));
                                 $('#lblState').text(event.event.extendedProps.state);
@@ -155,10 +157,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4>
-                        <label>Titre : </label>
-                        <asp:TextBox runat="server" ID="tbModalTitle" placeholder="Titre" />
-                    </h4>
+ 
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                 </div>
                 <div id="modalBody" class="modal-body">
@@ -168,12 +167,16 @@
                     <label>Date fin : </label>
                     <label id="lblEnd"></label>
                     <br />
+                    <label>Etat : </label>
+                    <label id="lblState"></label>
+                    <br />
+                    <label>Eleve : </label>
+                    <label id="lblModalTitle"></label>
+                    <br />
                     <label>Description : </label>
                     <br />
                     <asp:TextBox runat="server" TextMode="multiline" Rows="5" placeholder="Description" ID="tbModalDesc" Style="width: 100%"></asp:TextBox>
-                    <br />
-                    <label>Etat : </label>
-                    <label id="lblState"></label>
+                    
                     <asp:HiddenField runat="server" ID="hfeventIdModal" Value="test" />
 
 

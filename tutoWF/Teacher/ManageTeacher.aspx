@@ -32,7 +32,7 @@
         <asp:TextBox runat="server" TextMode="Date" AutoPostBack="true" CssClass="form-control float-right mr-2" ID="tbDateFin" OnTextChanged="tbDateDebut_TextChanged" />
         <label class="float-right mt-2 mr-1">Date fin :</label>
 
-        <asp:TextBox runat="server" TextMode="Date" AutoPostBack="true" CssClass="form-control float-right mr-2" ID="tbDateDebut" OnTextChanged="tbDateDebut_TextChanged" />
+        <asp:TextBox runat="server" TextMode="Date" AutoPostBack="true" CssClass="form-control float-right mr-2" ID="tbDateDebut" OnTextChanged="tbDateDebut_TextChanged"  />
         <label class="float-right mt-2 mr-1">Date début :</label>
         <asp:GridView runat="server" AllowSorting="true" AutoGenerateColumns="False" ID="gvEvent" DataKeyNames="Id" CssClass="table table-hover table-sm table-borderless " OnSorting="gvEvent_Sorting" ShowHeaderWhenEmpty="true">
             <HeaderStyle CssClass="thead-dark" />

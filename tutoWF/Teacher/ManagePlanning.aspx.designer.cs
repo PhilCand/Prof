@@ -22,15 +22,6 @@ namespace tutoWF {
         protected global::System.Web.UI.WebControls.HiddenField hdnTeacherId;
         
         /// <summary>
-        /// Contrôle tbModalTitle.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbModalTitle;
-        
-        /// <summary>
         /// Contrôle tbModalDesc.
         /// </summary>
         /// <remarks>

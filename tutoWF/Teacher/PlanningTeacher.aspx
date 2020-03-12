@@ -1,14 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PlanningTeacher.aspx.cs" Inherits="tutoWF.Teacher.PlanningTeacher" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <style>
+        .fc-title {
+            visibility: hidden; /* hides event title */
+        }
+    </style>
     <div class="title mb-0">
         <h1>
             <asp:Label Text="" ID="lblPlanning" runat="server" /></h1>
     </div>
     <br />
     <div class="text-center mt-0">
-        <asp:Label Text="" ID="lblConnected" runat="server"/></div>
+        <asp:Label Text="" ID="lblConnected" runat="server" />
+    </div>
     <br />
     <asp:HiddenField ID="hdnStudentId" runat="server" ClientIDMode="Static" />
     <script>
@@ -35,10 +40,19 @@
                             nowIndicator: true,
                             defaultDate: sessionStorage.getItem("date") == null ? new Date().toISOString() : sessionStorage.getItem("date"),
                             allDaySlot: false,
+                            minTime: "07:00:00",
+                            maxTime: "21:00:00",
+                            eventRender: function (event) {
+                                if (studentId == event.event.extendedProps.student_id.toString()) {
+                                    event.el.style.backgroundColor = "";
+                                }
+                            },
                             eventClick: function (event, jsEvent, view) {
                                 var date = calendar.getDate();
                                 sessionStorage.setItem("date", date.toISOString());
-                                $('#modalTitle').text(event.event.title);
+                                if (studentId == event.event.extendedProps.student_id.toString()) {
+                                    $('#modalTitle').text(event.event.title);
+                                } else $('#modalTitle').text("");
                                 $('#lblStart').text(formatDate(event.event.start));
                                 $('#lblEnd').text(formatDate(event.event.end));
                                 $('#lblState').text(event.event.extendedProps.state);
@@ -52,8 +66,8 @@
                                 if (event.event.backgroundColor == "grey" || event.event.start <= Date.now()) $('#MainContent_btn_bookEvent').attr('disabled', true);
                                 if (event.event.extendedProps.student_id == 0) $('#MainContent_btn_freeEvent').attr('disabled', true);
                                 if (event.event.start >= Date.now() && event.event.extendedProps.student_id == studentId && studentId > 0) {
-                                    $('#MainContent_btn_freeEvent').removeAttr('disabled');                                   
-                                }else $('#MainContent_btn_freeEvent').attr('disabled', true);
+                                    $('#MainContent_btn_freeEvent').removeAttr('disabled');
+                                } else $('#MainContent_btn_freeEvent').attr('disabled', true);
                             },
                         });
                         calendar.render();
@@ -73,9 +87,6 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4>
-                        <label id="modalTitle" />
-                    </h4>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
                 </div>
                 <div id="modalBody" class="modal-body">
@@ -85,11 +96,16 @@
                     <label>Date fin : </label>
                     <label id="lblEnd"></label>
                     <br />
+                    <label>Etat : </label>
+                    <label id="lblState"></label>
+                    <br />
+                    <label>Eleve : </label>
+                    <label id="modalTitle" />
+                    <br />
                     <label>Description : </label>
                     <label id="lblDesc"></label>
                     <br />
-                    <label>Etat : </label>
-                    <label id="lblState"></label>
+
                     <asp:HiddenField runat="server" ID="hfeventIdModal" Value="test" />
                 </div>
                 <div class="modal-footer">

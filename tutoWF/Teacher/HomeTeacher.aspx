@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="HomeTeacher.aspx.cs" Inherits="tutoWF.Teacher.HomeTeacher" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <%if (TeacherExist)
+        { %>
     <div class="title">
         <h1>
             <asp:Label Text="" ID="lblTitle" runat="server" /></h1>
     </div>
     
-
     <div class="jumbotron">
         <h1 class="display-4"><%= TeachersPage.FirstName %> <%=TeachersPage.Name %></h1>
         <p class="lead"><%= TeachersPage.Description %></p>
@@ -35,5 +35,11 @@
             <h6>Nouvel élève ? <a href="/Student/Newstudent?id=<%Response.Write(Convert.ToInt32(Request.QueryString["id"]));%>">Créer un compte</a></h6>
         </div>
     </div>
+    <%}
+        }
+        else
+        {%>
+    <h2>Professeur inconnu. </h2>
+    <a href="/Default"> Retour à l'accueil</a>
     <%} %>
 </asp:Content>

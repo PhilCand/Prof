@@ -442,6 +442,44 @@ namespace tutoWF.DAL
 
         }
 
+        //public static Event[] GetEventsbyTeacherStudentId(int TeacherId, int StudentId)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(_connectionString))
+        //    {
+        //        List<Event> Events = new List<Event>();
+        //        connection.Open();
+        //        String query = $"SELECT * FROM Event WHERE Teacher_id={TeacherId}";
+        //        SqlCommand myCommand = new SqlCommand(query, connection);
+
+        //        SqlDataReader rdr = myCommand.ExecuteReader();
+
+        //        while (rdr.Read())
+        //        {
+        //            Event newEvent = new Event();
+
+        //            newEvent.id = (int)rdr["Id"];
+        //            newEvent.title = rdr["Title"].ToString();
+        //            newEvent.start = (DateTime)rdr["Start_date"];
+        //            newEvent.end = (DateTime)rdr["End_date"];
+        //            newEvent.url = rdr["Url"].ToString();
+        //            newEvent.teacher_id = (int)rdr["Teacher_id"];
+        //            newEvent.student_id = GetValue<int>(rdr["Student_id"]);
+        //            if (newEvent.student_id == StudentId) newEvent.backgroundColor = "red";
+        //            else newEvent.backgroundColor = rdr["BackgroundColor"].ToString();
+        //            newEvent.description = rdr["Description"].ToString();
+        //            newEvent.state = rdr["State"].ToString();
+
+        //            Events.Add(newEvent);
+        //        }
+
+        //        Event[] EventsArr = Events.ToArray();
+
+
+        //        return EventsArr;
+        //    }
+
+        //}
+
         public static int CreateEvent(Event newEvent)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -489,16 +527,15 @@ namespace tutoWF.DAL
 
         }
 
-        public static void UpdateEventTitleDesc(int eventId, string title, string desc)
+        public static void UpdateEventTitleDesc(int eventId, string desc)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                String query = "UPDATE Event SET Title = @title, Description = @description WHERE id=@id";
+                String query = "UPDATE Event SET Description = @description WHERE id=@id";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", eventId);
-                    command.Parameters.AddWithValue("@title", title);
                     command.Parameters.AddWithValue("@description", desc);
 
                     connection.Open();
@@ -507,16 +544,18 @@ namespace tutoWF.DAL
             }
         }
 
-        public static void BookEvent(int eventId, int studentId)
+        public static void BookEvent(int eventId, Models.Student student)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                String query = "UPDATE Event SET Student_id = @student_id, State = 'Réservé', BackgroundColor = 'grey'  WHERE id=@id";
+                String query = "UPDATE Event SET Student_id = @student_id, State = 'Réservé', BackgroundColor = 'grey', Title=@title WHERE id=@id";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", eventId);
-                    command.Parameters.AddWithValue("@student_id", studentId);
+                    command.Parameters.AddWithValue("@student_id", student.Id);
+                    command.Parameters.AddWithValue("@title", student.FirstName+' '+student.Name);
+
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
@@ -571,7 +610,7 @@ namespace tutoWF.DAL
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                String query = "UPDATE Event SET Student_id = NULL, State = 'Libre', BackgroundColor = 'green' WHERE id=@id";
+                String query = "UPDATE Event SET Student_id = NULL, State = 'Libre', BackgroundColor = 'green', title = NULL WHERE id=@id";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

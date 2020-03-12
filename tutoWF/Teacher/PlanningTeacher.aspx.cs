@@ -9,6 +9,7 @@ namespace tutoWF.Teacher
 {
     public partial class PlanningTeacher : System.Web.UI.Page
     {
+        public Models.Student LoggedStudent { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,11 +21,11 @@ namespace tutoWF.Teacher
 
             if (Session["Student"] != null)
             {
-                Models.Student loggedStudent = (Models.Student)Session["Student"];
-                if (id == loggedStudent.Teacher_id)
+                LoggedStudent = (Models.Student)Session["Student"];
+                if (id == LoggedStudent.Teacher_id)
                 {
                     lblConnected.Text = "Vous êtes connecté";
-                    hdnStudentId.Value = loggedStudent.Id.ToString();
+                    hdnStudentId.Value = LoggedStudent.Id.ToString();
                 }
                 else lblConnected.Text = $"Vous n'êtes pas élève de ce professeur, <a href='/Student/Newstudent?id={id}'>créer un compte<a>";
             }
@@ -38,7 +39,7 @@ namespace tutoWF.Teacher
         {
             int eventId = Int32.Parse(hfeventIdModal.Value);
             int studentId = Int32.Parse(hdnStudentId.Value);
-            DAL.DAL.BookEvent(eventId, studentId);
+            DAL.DAL.BookEvent(eventId, LoggedStudent);
             ClientScript.RegisterStartupScript(GetType(), "alert", "showSuccessAlert('Réservation effectuée');", true);
 
         }

@@ -22,6 +22,7 @@ namespace tutoWF.Student
 
             if (!IsPostBack)
             {
+                tbDateDebut.Text = DateTime.Today.ToString("yyyy-MM-dd");
                 BindDataSourceEvent();
             }
         }

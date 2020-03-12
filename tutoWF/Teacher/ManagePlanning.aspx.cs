@@ -22,10 +22,9 @@ namespace tutoWF
         protected void btn_update_Click(object sender, EventArgs e)
         {
             int eventId = Int32.Parse(hfeventIdModal.Value);
-            string title = tbModalTitle.Text;
             string desc = tbModalDesc.Text;
 
-            DAL.DAL.UpdateEventTitleDesc(eventId, title, desc);
+            DAL.DAL.UpdateEventTitleDesc(eventId, desc);
 
 
         }
